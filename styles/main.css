@@ -1,0 +1,35 @@
+@import url(pages/bookings.css);
+
+:root {
+    --primary-color: #fff;
+    --secondary-color: #fff;
+    --background-color: #fff;
+    /* Not being used atm */
+
+    --accent-color: #922338;
+    --secondary-accent-color: #E9D3D7;
+    --text-color: #1E1E1E;
+    --seconddary-text-color: #757575;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.2;
+    color: var(--text-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+h3 {
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--seconddary-text-color);
+}
