@@ -5,7 +5,7 @@
     "name": "Footabll Field",
     "description": "Open air football field.",
     "availability": "Weekdays 3pm - 7pm",
-    "image": "images/sport_facility.jpg",
+    "image": "../images/sport_facility.jpg",
     "location": "Main Courtyard",
     "capacity": 50
   },
@@ -15,7 +15,7 @@
     "name": "Study Room A101",
     "description": "Quiet study room with 6 seats, whiteboard, and high-speed Wi-Fi.",
     "availability": "Weekdays 8am - 10pm",
-    "image": "images/studyroom.jpg",
+    "image": "../images/studyroom.jpg",
     "location": "Library Building, 1st Floor",
     "capacity": 6
   },
@@ -25,7 +25,7 @@
     "name": "Computer Lab B305",
     "description": "Fully equipped computer lab with 25 workstations and printing services.",
     "availability": "Mon - Fri, 9am - 6pm",
-    "image": "images/computerlab.jpg",
+    "image": "../images/computerlab.jpg",
     "location": "Engineering Building, 3rd Floor",
     "capacity": 25
   },
@@ -35,7 +35,7 @@
     "name": "3D Printer - MakerBot",
     "description": "High-resolution 3D printer available for approved design projects.",
     "availability": "Weekdays 10am - 5pm",
-    "image": "images/3dprinter.jpg",
+    "image": "../images/equipment.jpg",
     "location": "Innovation Lab",
     "capacity": 1
   },
@@ -45,18 +45,18 @@
     "name": "Group Study Room B210",
     "description": "Medium-sized room ideal for group projects, with a projector and whiteboard.",
     "availability": "Weekdays 8am - 8pm",
-    "image": "images/groupstudy.jpg",
+    "image": "../images/studyroom.jpg",
     "location": "Library Building, 2nd Floor",
     "capacity": 10
   },
   {
     "id": 6,
-    "type": "event",
-    "name": "AI & Robotics Workshop",
-    "description": "Hands-on workshop introducing students to AI applications and robotics.",
+    "type": "equipment",
+    "name": "Calculator",
+    "description": "CSS accepted calculator.",
     "availability": "Saturday 10am - 4pm",
-    "image": "images/aiworkshop.jpg",
-    "location": "Innovation Hub",
-    "capacity": 50
+    "image": "../images/equipment.jpg",
+    "location": "Library Building Services",
+    "capacity": 15
   }
 ]

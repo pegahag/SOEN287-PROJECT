@@ -4,39 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resources</title>
-    <style>
-    table {
-      width: 100%;
-      border-collapse: separate;
-      margin-top: 1rem;
-    }
-
-    td {
-      border: 1px solid #ddd;
-      padding: 8px;
-      text-align:center;
-      vertical-align:middle;
-    }
-
-    <!--tr:nth-child(even) {
-      background-color:
-    }
-  </style>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/pages/catalogue.css">
 </head>
-<body>
+<body class="page-container">
     <header>
         <h1>Welcome to Our Resource Catalog</h1>
     </header>
 
     <section id="description">
-        <h2>Website Description</h2>
-        <span id="h2_Subheading">Browse Available resources</span> 
+        <h2>Resource Catalogue</h2>
+        <span class="h2_Subheading">Browse Available resources</span> 
         <p>Welcome to Concordia University Resource Booking System, your central hub for reserving study rooms, labs, sports facilities and specialized equipments. You can easily browse available resources, check real-time schedules, and make, modify, or cancel bookings at any time.</p>
     </section>
     
     <section id="resources">
         <h2>Brows Resources</h2>
-        <span id="h2_Subheading">Making Bookings From Following Catalogue</span>
+        <span class="h2_Subheading">Making Bookings From Following Catalogue</span>
         <div id="resource_filters"> 
             <button class ="filter_button" id="all_resources">All</button>
             <button class ="filter_button" id="study_rooms">Study Rooms</button>
@@ -82,7 +66,6 @@
             }
           });
 
-          // Append the last row if it has less than 3 items
           if (tr.children.length > 0) {
             tbody.appendChild(tr);
           }
