@@ -7,7 +7,8 @@
     "availability": "Weekdays 3pm - 7pm",
     "image": "../images/sport_facility.jpg",
     "location": "Main Courtyard",
-    "capacity": 50
+    "capacity": 50,
+    "status":"open"
   },
   {
     "id": 2,
@@ -17,7 +18,8 @@
     "availability": "Weekdays 8am - 10pm",
     "image": "../images/studyroom.jpg",
     "location": "Library Building, 1st Floor",
-    "capacity": 6
+    "capacity": 6,
+    "status":"open"
   },
   {
     "id": 3,
@@ -27,7 +29,8 @@
     "availability": "Mon - Fri, 9am - 6pm",
     "image": "../images/computerlab.jpg",
     "location": "Engineering Building, 3rd Floor",
-    "capacity": 25
+    "capacity": 25,
+    "status":"open"
   },
   {
     "id": 4,
@@ -37,7 +40,8 @@
     "availability": "Weekdays 10am - 5pm",
     "image": "../images/equipment.jpg",
     "location": "Innovation Lab",
-    "capacity": 1
+    "capacity": 1,
+    "status":"open"
   },
   {
     "id": 5,
@@ -47,7 +51,8 @@
     "availability": "Weekdays 8am - 8pm",
     "image": "../images/studyroom.jpg",
     "location": "Library Building, 2nd Floor",
-    "capacity": 10
+    "capacity": 10,
+    "status":"open"
   },
   {
     "id": 6,
@@ -57,6 +62,7 @@
     "availability": "Saturday 10am - 4pm",
     "image": "../images/equipment.jpg",
     "location": "Library Building Services",
-    "capacity": 15
+    "capacity": 15,
+    "status":"open"
   }
 ]

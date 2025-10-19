@@ -1,0 +1,143 @@
+/* Create A New Resource Page */
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
+  min-height: 100vh;        
+  background-color: #fafafa;
+  padding: 40px 20px;
+}
+
+/* Page Title */
+.page-container h1 {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.page-container p {
+  font-size: 16px;
+  color: var(--seconddary-text-color);
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+/* Form Container */
+form {
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 32px;
+  width: 100%;
+  max-width: 520px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ---------- Inputs & Labels ---------- */
+label {
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 6px;
+  display: block;
+  color: var(--text-color);
+}
+
+input[type="text"],
+input[type="number"],
+input[type="time"],
+input[type="file"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-family: inherit;
+  font-size: 15px;
+  background-color: #fff;
+  color: var(--text-color);
+  box-sizing: border-box;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(146, 35, 56, 0.15);
+}
+
+/* Fieldsets */
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+legend {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text-color);
+  margin-bottom: 6px;
+  width: 100%;
+}
+
+/* Days Available */
+fieldset legend + label {
+  margin-top: 8px;
+}
+
+fieldset label input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid #ccc;
+  background-color: #f7f7f7;
+  border-radius: 6px;
+  padding: 8px 14px;
+  margin-right: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--seconddary-text-color);
+}
+
+fieldset label input[type="checkbox"]:checked {
+  background-color: var(--accent-color);
+  color: #fff;
+  border-color: var(--accent-color);
+}
+
+/* File Upload */
+input[type="file"] {
+  border: 1px dashed #ccc;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* Submit Button  */
+button[type="submit"],
+form button {
+  background-color: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: 14px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #7c1f31;
+}
+

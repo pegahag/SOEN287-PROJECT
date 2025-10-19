@@ -1,0 +1,188 @@
+/* Resource Management Page Styles */
+
+/* Header Section */
+.description h1 {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 4px;
+}
+
+.description .h1_subheading {
+  font-size: 15px;
+  color: var(--seconddary-text-color);
+  font-weight: 400;
+  margin: 0;
+}
+
+.description a {
+  color: #922338; 
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.description a:hover {
+  color: #741b2b;
+  text-decoration: underline;
+}
+
+/* Main Page Layout */
+.page_body {
+  max-width: 1200px;
+  min-height: 1817px;
+  margin: 0 auto;
+  padding: 32px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+/* Resource Table */
+#resourcesTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 24px;
+}
+
+#resourcesTable tr {
+  display: flex;
+  gap: 16px;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+#resourcesTable td {
+  padding: 16px;
+  vertical-align: top;
+}
+
+/* Image Cell */
+#resourcesTable td:first-child {
+  
+  width: 180px;     
+  height: auto;     
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+#resourcesTable td:first-child img {
+  width: 100%;
+}
+
+/* Content Cell */
+#resourcesTable td:nth-child(2) {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#resourcesTable h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 4px;
+}
+
+/* Basic Info Text */
+#resourcesTable td:nth-child(2) > div {
+  color: var(--seconddary-text-color);
+  font-size: 14px;
+}
+
+/* Description Paragraph */
+#resourcesTable p {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+/* Action Buttons Row */
+#resourcesTable td:nth-child(2) > div:last-child {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+#resourcesTable button {
+  background-color: rgba(146, 35, 56, 0.2);
+  color: #000; /* black text */
+  border: 1px solid rgba(146, 35, 56, 0.4);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* Hover State */
+#resourcesTable button:hover {
+  background-color: #922338; 
+  color: #fff;
+}
+
+/* Active / Focused */
+#resourcesTable button:active,
+#resourcesTable button:focus {
+  background-color: #741b2b;
+  color: #fff;
+  outline: none;
+}
+
+/* When blocked — stays dark red */
+#resourcesTable button.blocked {
+  background-color: #922338;
+  color: #fff;
+  border-color: #922338;
+}
+#resourcesTable button.blocked:hover {
+  background-color: #741b2b;
+}
+
+/* Status Badges */
+#resourcesTable td:nth-child(2) div.status[data-status="open"] {
+  color: green;
+  font-weight: 600;
+}
+
+#resourcesTable td:nth-child(2) div.status[data-status="blocked"] {
+  color: red;
+  font-weight: 600;
+}
+
+
+
+/* New resource section */
+.new_resource {
+  text-align: center;
+  padding: 40px 0;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+
+
+/* Create new resource button */
+.create_resource {
+  background-color: #922338; /* dark red */
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.create_resource:hover {
+  background-color: #741b2b;
+  transform: translateY(-2px);
+}

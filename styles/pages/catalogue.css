@@ -1,7 +1,11 @@
 /* Catalogue Page Styles */
 
 /* Page spacing*/
-.page-container { max-width: 1200px; margin: 0 auto; padding: 0 64px; }
+.page-container { 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 0 64px; 
+}
 
 #description,
 #resources {
@@ -19,12 +23,12 @@
   font-weight: 700;
 }
 
-#h2_Subheading {
+.h2_Subheading {
   font-size: 14px;
   color: var(--seconddary-text-color, #6b6b6b);
 }
 
-/* ===== Filters ===== */
+/* Filters */
 #resource_filters {
   display: flex;
   flex-wrap: wrap;
@@ -34,23 +38,22 @@
 }
 
 .filter_button {
+  color: #757575;
   cursor: pointer;
   border-radius: 8px;
-  border: 1px solid #d9d9d9;
+  border: 1px solid #F5F5F5;
   padding: 8px 14px;
-  background-color:#ecd9dc; ;
+  background-color:#F5F5F5; ;
   font-weight: 600;
-  transition: transform 0.06s ease, box-shadow 0.12s ease, background-color 0.12s ease;
 }
 
 .filter_button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  background-color: #fafafa;
+  color: white;
+  box-shadow: #922338;
+  background-color: #922338;
 }
 
 .filter_button:active {
-  transform: translateY(0);
   box-shadow: none;
 }
 
@@ -87,11 +90,11 @@
 #resourcesTable td .resource_img {
   display: block;
   margin: 0 auto;
-  width: 100%;              /* make the image stretch the full width of the card */
-  max-width: none;          /* remove the max-width restriction */
-  height: 180px;            /* fixed height for uniform look (optional) */
-  object-fit: cover;        /* crops nicely to fill space */
-  border-radius: 0;         /* removes rounded corners */
+  width: 100%;             
+  max-width: none;         
+  height: 180px;           
+  object-fit: cover;        
+  border-radius: 0;         
   margin-bottom: 8px;
 }
 
