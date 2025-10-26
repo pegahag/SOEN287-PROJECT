@@ -22,11 +22,11 @@
         <h2>Brows Resources</h2>
         <span class="h2_Subheading">Making Bookings From Following Catalogue</span>
         <div id="resource_filters"> 
-            <button class ="filter_button" id="all_resources">All</button>
-            <button class ="filter_button" id="study_rooms">Study Rooms</button>
-            <button class ="filter_button" id="labs">Labs</button>
-            <button class ="filter_button" id="sports_facilities">Sports Facilities</button>
-            <button class ="filter_button" id="specialized_equipments">Equipments</button>
+          <button class="filter_button" data-filter="all" id="all_resources">All</button>
+          <button class="filter_button" data-filter="room" id="study_rooms">Study Rooms</button>
+          <button class="filter_button" data-filter="lab" id="labs">Labs</button>
+          <button class="filter_button" data-filter="sport_facility" id="sports_facilities">Sports Facilities</button>
+          <button class="filter_button" data-filter="equipment" id="specialized_equipments">Equipments</button>
         </div>
         <div id="resourceList">
             <table id="resourcesTable">
@@ -36,43 +36,6 @@
             </table>
         </div>
     </section>
-
-
-    <script>
-      let resourcesArray = [];
-
-      fetch('../data/resources.json')
-        .then(response => response.json())
-        .then(data => {
-          resourcesArray = data;
-
-          const tbody = document.querySelector('#resourcesTable tbody');
-          let tr = document.createElement('tr');   // Start with the first row
-
-          resourcesArray.forEach((resource, index) => {
-            const td = document.createElement('td');
-            td.innerHTML = `
-              <img class="resource_img" src="${resource.image}" alt="${resource.type}" style="width:100%; max-width:150px; height:auto;"><br>
-              <span class="resource_name">${resource.name}</span><br>
-              <span class="resource_desc">${resource.description}</span><br>
-              <span class="resource_location">${resource.location}</span><br>
-            `;
-            tr.appendChild(td);
-
-            // Every 3 items → append the row & start a new one
-            if ((index + 1) % 3 === 0) {
-              tbody.appendChild(tr);
-              tr = document.createElement('tr');
-            }
-          });
-
-          if (tr.children.length > 0) {
-            tbody.appendChild(tr);
-          }
-        })
-        .catch(error => console.error('Error loading resources:', error));
-    </script>
-
-
+    <script src="../scripts/catalogue.js"></script>
 </body>
 </html>

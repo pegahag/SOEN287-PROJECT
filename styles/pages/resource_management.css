@@ -101,6 +101,35 @@
   color: var(--text-color);
 }
 
+/* Stats row styling */
+#resourcesTable .stats {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+#resourcesTable .stat {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 6px 10px;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  background: #f9f9f9;
+  font-size: 13px;
+}
+
+#resourcesTable .stat .label {
+  color: var(--seconddary-text-color);
+}
+
+#resourcesTable .stat .value {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+
 /* Action Buttons Row */
 #resourcesTable td:nth-child(2) > div:last-child {
   margin-top: 12px;

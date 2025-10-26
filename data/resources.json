@@ -12,7 +12,7 @@
   },
   {
     "id": 2,
-    "type": "room",
+    "type": "Room",
     "name": "Study Room A101",
     "description": "Quiet study room with 6 seats, whiteboard, and high-speed Wi-Fi.",
     "availability": "Weekdays 8am - 10pm",
@@ -23,7 +23,7 @@
   },
   {
     "id": 3,
-    "type": "lab",
+    "type": "Lab",
     "name": "Computer Lab B305",
     "description": "Fully equipped computer lab with 25 workstations and printing services.",
     "availability": "Mon - Fri, 9am - 6pm",
@@ -34,7 +34,7 @@
   },
   {
     "id": 4,
-    "type": "equipment",
+    "type": "Equipment",
     "name": "3D Printer - MakerBot",
     "description": "High-resolution 3D printer available for approved design projects.",
     "availability": "Weekdays 10am - 5pm",
@@ -45,7 +45,7 @@
   },
   {
     "id": 5,
-    "type": "room",
+    "type": "Room",
     "name": "Group Study Room B210",
     "description": "Medium-sized room ideal for group projects, with a projector and whiteboard.",
     "availability": "Weekdays 8am - 8pm",
@@ -56,7 +56,7 @@
   },
   {
     "id": 6,
-    "type": "equipment",
+    "type": "Equipment",
     "name": "Calculator",
     "description": "CSS accepted calculator.",
     "availability": "Saturday 10am - 4pm",

@@ -53,13 +53,16 @@
   background-color: #922338;
 }
 
-.filter_button:active {
-  box-shadow: none;
-}
-
 .filter_button.is-active {
   background-color: var(--secondary-accent-color, #eef6ff);
   border-color: var(--secondary-accent-color, #eef6ff);
+}
+
+.filter_button.active {
+  background-color: #922338; 
+  color: white;
+  border-color: #922338;
+  box-shadow: none;
 }
 
 /*  Resource table as a card grid  */
@@ -116,34 +119,11 @@
   color: #9a9a9a;
 }
 
-/* Optional: match your spacing pattern inside cards */
+/* match spacing pattern inside cards */
 #resourcesTable td .resource_name + .resource_desc,
 #resourcesTable td .resource_desc + .resource_location {
   margin-top: 4px;
 }
-
-/* Responsive tweaks */
-/* Slightly tighter spacing on smaller screens */
-@media (max-width: 1024px) {
-  #resourcesTable {
-    border-spacing: 20px 20px;
-  }
-  #description,
-  #resources {
-    padding: 24px;
-  }
-}
-
-@media (max-width: 768px) {
-  #resourcesTable {
-    border-spacing: 16px 16px;
-  }
-  #description,
-  #resources {
-    padding: 16px;
-  }
-}
-
 
 header {
   padding: 34px 64px 0 64px;

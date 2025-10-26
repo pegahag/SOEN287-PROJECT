@@ -58,6 +58,21 @@ function renderResources(data) {
     desc.textContent = item.description;
     contentTd.appendChild(desc);
 
+    //Static stats section (same for all resources)
+    const statsRow = document.createElement('div');
+    statsRow.className = 'stats';
+    statsRow.innerHTML = `
+      <div class="stat">
+        <span class="label">Peak time:</span>
+        <span class="value">12 PM</span>
+      </div>
+      <div class="stat">
+        <span class="label">Resource availability:</span>
+        <span class="value">25%</span>
+      </div>
+    `;
+    contentTd.appendChild(statsRow);
+
     // Actions
     const actions = document.createElement('div');
 
