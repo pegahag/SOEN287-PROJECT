@@ -89,7 +89,7 @@
   box-shadow: 0 1px 0 rgba(0,0,0,0.02);
 }
 
-/* Image inside the card */
+/* pic in the card */
 #resourcesTable td .resource_img {
   display: block;
   margin: 0 auto;
@@ -101,7 +101,7 @@
   margin-bottom: 8px;
 }
 
-/* Text blocks inside the card (names, desc, location) */
+/* Text parts in the card (names, desc, location) */
 #resourcesTable td .resource_name {
   font-weight: 600;                   
   font-size: 18px;

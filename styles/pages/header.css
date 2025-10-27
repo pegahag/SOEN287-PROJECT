@@ -1,0 +1,84 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+}
+
+/* Divider lines above and below header */
+hr {
+  margin: 0;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+/* Header container layout */
+header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Left side: logo and home link */
+.brand {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.home {
+  text-decoration: none;
+  color: rgb(240, 69, 69);
+  font-weight: 700;
+}
+
+/* Right side: navigation and actions */
+.right-section {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+/* Navigation menu */
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.nav a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #222;
+}
+
+/* Buttons section */
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.actions button {
+  background: #f2dddd;
+  color: #7c1f1f;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+/* Register button (last one) */
+.actions button:last-child {
+  background: #7c1f1f;
+  color: #fff;
+}
+
+/* Optional hover effects */
+.actions button:hover {
+  opacity: 0.9;
+}
+
+.nav a:hover {
+  color: #7c1f1f;
+}

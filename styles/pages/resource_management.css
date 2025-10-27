@@ -27,15 +27,17 @@
   text-decoration: underline;
 }
 
-/* Main Page Layout */
+/* Page Layout */
 .page_body {
   max-width: 1200px;
   min-height: 1817px;
   margin: 0 auto;
-  padding: 32px;
+  padding: 64px;
   background-color: #fff;
   box-sizing: border-box;
 }
+
+
 
 /* Resource Table */
 #resourcesTable {

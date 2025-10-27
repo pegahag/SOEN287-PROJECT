@@ -1,0 +1,25 @@
+#description.description_pic_text {
+  padding: 0;
+  gap: 0;
+  margin: 0 64px;
+
+  /* background pic */
+  background-image: url("../../images/catalogue.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* size & layout */
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+}
+
+#description.description_pic_text h1 {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 700;
+}
