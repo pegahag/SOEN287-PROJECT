@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manage Profile information</title>
+  <style>
+   * { box-sizing: border-box; }
+
+
+hr { margin: 0; border: 0; border-top: 1px solid #eee; }
+
+
+.container{
+  max-width:1200px;
+  margin:0 auto;
+  padding:12px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.brand{ display:flex; gap:10px; align-items:center; }
+.home{ text-decoration:none; color:rgb(240,69,69); font-weight:700; }
+
+.right-section{ display:flex; gap:25px; align-items:center; }
+
+.nav{ display:flex; gap:20px; }
+.nav a{ text-decoration:none; font-weight:500; color:#222; }
+
+.actions{ display:flex; gap:10px; }
+.actions button{
+  background:#f2dddd; color:#7c1f1f;
+  border:none; border-radius:8px;
+  padding:6px 14px; cursor:pointer;
+}
+.actions button:last-child{ background:#7c1f1f; color:#fff; }
+
+
+.CreateResource{
+  width: 100%;
+  max-width: 560px;              
+  margin: 48px auto;          
+  padding: 24px;               
+  background: #fff;
+  border: 1px solid #eee;      
+  border-radius: 16px;          
+  text-align: left;             
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+
+.CreateResource h4{
+  margin: 18px 0 8px;
+  font-size: 14px;
+}
+
+.CreateResource label,
+.CreateResource > p{
+  display: block;
+  margin: 14px 0 6px;
+  font-weight: 600;
+}
+
+
+.CreateResource input[type="text"],
+.CreateResource input[type="date"],
+.CreateResource input[type="time"],
+.CreateResource textarea{
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  outline: none;
+  font: inherit;               
+  background: #fff;
+  box-sizing: border-box;
+}
+
+
+.CreateResource textarea{
+  min-height: 120px;
+  resize: vertical;           
+}
+
+
+.CreateResource fieldset{
+  border: 0;
+  padding: 0;
+  margin: 6px 0 12px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+}   
+
+.CreateResource input[type="submit"]{
+      width: 100%;
+      height: 42px;
+      border: none;
+      border-radius: 10px;
+      background: #7c1f1f;
+      color: #fff;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    
+  </style>
+</head>
+<body>
+
+<header>
+  <hr>
+  <div class="container">
+    <div class="brand">
+      <div class="logo">LOGO</div>
+      <a class="home" href="#">Home</a>
+    </div>
+    <div class="right-section">
+      <nav class="nav">
+        <a href="#">Resources</a>
+        <a href="#">Calendar</a>
+        <a href="#">Administrator</a>
+        <a href="#">Create</a>
+        <a href="#">Management</a>
+      </nav>
+      <div class="actions">
+        <button>Sign in</button>
+        <button>Register</button>
+      </div>
+    </div>
+  </div>
+  <hr>
+</header>
+
+<img src="CreateResource.jpg" width="100%" height=auto >
+  
+<h2 style="text-align: center;">Create A New Resources</h2>
+<p style="text-align: center;">Flavour text</p>
+
+<form class = "CreateResource">
+<p>Resource title</p>
+<input type="text" placeholder="Enter event title" />
+<br>
+<label for="start">Start Date:</label>
+<input type="date" id="start" name="start">
+<br>
+<label for="end">End Date:</label>
+<input type="date" id="end" name="end">
+<br>
+<label for="start">Starting:</label>
+<input type="time" id="start" name="start" value="08:00">
+<label for="end">Until:</label>
+<input type="time" id="end" name="end" value="15:00">
+<br>
+<h4>Days Available</h4>
+<fieldset>
+  <label><input type="checkbox" name="days" value="mon"> MON</label>
+  <label><input type="checkbox" name="days" value="tue"> TUE</label>
+  <label><input type="checkbox" name="days" value="wed"> WED</label>
+  <label><input type="checkbox" name="days" value="thu"> THU</label>
+  <label><input type="checkbox" name="days" value="fri"> FRI</label>
+  <label><input type="checkbox" name="days" value="sat"> SAT</label>
+  <label><input type="checkbox" name="days" value="sun"> SUN</label>
+</fieldset>
+<p>Capacity</p>
+<input type="text" placeholder="Enter Available seats" />
+<br>
+<label for="desc">Description</label><br>
+<textarea id="desc" name="desc" rows="6" cols="auto" placeholder="Enter Resource Description"></textarea>
+<br>
+<br>
+<input type="submit" value="Create event" />
+</form>
+
+</body>
+</html>
