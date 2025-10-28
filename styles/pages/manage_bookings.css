@@ -1,0 +1,106 @@
+/* BOOKINGS MAIN */
+.main{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+}
+
+/* CARDS */
+.titles{
+    padding: 0;
+}
+
+.body{
+    margin: 0;
+}
+
+.card_list{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 0;
+    padding-bottom: 20px;
+    list-style: none;
+}
+
+.card{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    padding: 16px;
+    gap: 16px;
+    border: 1px solid #e6e6e6;
+    border-radius: 12px;
+}
+
+.card_image{
+    flex: 0 0 140px;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    margin: 0;
+}
+
+.card_image > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card_body{
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.card_title{
+    font-size:large;
+    margin-top: 0;
+    font-weight:600;
+}
+
+.card_meta{
+    margin: 0;
+    color: lightslategray;
+    font-size: 90%;
+}
+
+.card_text{
+    flex: 1 1 auto;
+    min-width: 0;
+    font-size:90%;
+}
+
+.card_buttons{
+    margin:0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.card_button{
+    background-color: pink;
+    border: 5px solid #ffc0cb;
+    border-radius: 8px;
+}
+
+.card_button:hover{
+    background-color: rgb(255, 218, 223);
+    border: 5px solid rgb(255, 218, 223);
+
+}
+
+.main_title{
+    font-size:large;
+    margin: 0;
+    font-weight:600;
+}
+
+.sub_title{
+    margin: 0;
+    color: lightslategray;
+    font-size: 90%;
+}
