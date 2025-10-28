@@ -4,30 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resources</title>
-    <link rel="stylesheet" href="../styles/pages/header.css">
+    <link rel="stylesheet" href="../styles/pages/header-footer.css">
     <link rel="stylesheet" href="../styles/pages/description_pic_text.css">
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/pages/catalogue.css">
 </head>
 <body class="page-container">
     <header>
-        <hr>
-        <div class="container">
-            <div class="brand">
-            <div class="logo">LOGO</div>
-            <a class="home" href="../pages/catalogue.html">Home</a>
-            </div>
-            <div class="right-section">
-            <nav class="nav">
-                
-            </nav>
-            <div class="actions">
-                <a href="../pages/login.html"><button>Sign in</button></a>
-                <a href="../pages/register.html"><button>Register</button></a>
-            </div>
-            </div>
+ <div class="header">
+        <figure class="concordia_logo">
+            <a href="catalogue.html">
+            <img src="../images/concordia_logo.png" alt="The Concordia logo. Stylish!">
+        </a></figure>
+        <div class="home_button">Home</div>
+        <div class="navilinks">
+            <a href="resource_management.html"class="navilink">Resources</a>
+            <a href="my_bookings.html"class="navilink">Calendar</a>
+            <a href="bookings.html" class="navilink">Administrator</a>
+            <a href="my_calendar.html"class="navilink">Create</a>
+            <a href="resource_management.html"class="navilink">Management</a>
         </div>
-        <hr>
+        <div class="account_buttons">
+            <button onclick="document.location='login.html'" class="signin_button" >Sign In</button>
+            <button onclick="document.location='login.html'"class="register_button">Register</button>
+        </div>
+    </div>
+
     </header>
 
     
@@ -56,5 +58,61 @@
         </div>
     </section>
     <script src="../scripts/catalogue.js"></script>
+
+<div class="footer">
+        <div class="column">
+            <div class="col-top">
+                <figure class="concordia_logo">
+                    <a href="catalogue.html">
+                    <img src="../images/concordia_logo.png" alt="The Concordia logo. Stylish!">
+                </a></figure>
+            </div>
+            <div class="col-links">
+                <div class="link">Website contact</div>
+                <div class="link">Website contact</div>
+                <div class="link">Website contact</div>
+            </div>
+        </div>
+    
+        <div class="column">
+            <div class="col-top">
+                <div class="header_top">Header</div>
+            </div>
+            <div class="col-links">
+                <div class="link">Navigation</div>
+                <div class="link">Navigation</div>
+                <div class="link">Navigation</div>
+                <div class="link">Navigation</div>
+                <div class="link">Navigation</div>
+                <div class="link">Navigation</div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="col-top">
+                <div class="header_top">Other</div>
+            </div>
+            <div class="col-links">
+                <div class="link">Resource</div>
+                <div class="link">Resource</div>
+                <div class="link">Resource</div>
+                <div class="link">Resource</div>
+                <div class="link">Resource</div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="col-top">
+                <div class="header_top">Staff</div>
+            </div>
+            <div class="col-links">
+                <div class="link">Member</div>
+                <div class="link">Member</div>
+                <div class="link">Member</div>
+                <div class="link">Member</div>
+                <div class="link">Member</div>
+            </div>
+        </div>
+    </div>
+
+    
 </body>
 </html>
