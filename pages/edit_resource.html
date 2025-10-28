@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/pages/header-footer.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <link rel="stylesheet" href="../styles/pages/edit_resource.css">
-    <title>Edit Resource</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manage Profile information</title>
+  <link rel ="stylesheet" href = "../styles/main.css" >
+  <link rel ="stylesheet" href = "../styles/pages/edit_resource.css" >
+  <link rel ="stylesheet" href = "../styles/pages/header-footer.css" >
+
 </head>
 <body>
-  <header>
-       <div class="header">
+
+<header>
+  <div class="header">
         <figure class="concordia_logo">
             <a href="catalogue.html">
             <img src="../images/concordia_logo.png" alt="The Concordia logo. Stylish!">
@@ -28,157 +30,53 @@
             <button onclick="document.location='login.html'"class="register_button">Register</button>
         </div>
     </div>
- 
-    </header>
-  <div class="page-container">
-    
-    <main>
-      <h1>Edit Existing Resource</h1>
 
-      <form action="edit_resource.json" method="post">
-      
-        <div>
-          <label for="title">Resource Title</label>
-          <input id="title" name="title" type="text" placeholder="Enter event title" required />
-        </div>
+</header>
 
-        <fieldset>
-          <legend>Start Date</legend>
+<img src="../images/CreateResource.jpg" width="100%" height=auto >
+  
+<h2 style="text-align: center;">Modify A Resources</h2>
 
-          <label for="start-day">Day</label>
-          <select id="start-day" name="start_day" required>
-            <option value="" selected disabled>Day</option>
-            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
-            <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
-            <option>11</option><option>12</option><option>13</option><option>14</option><option>15</option>
-            <option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
-            <option>21</option><option>22</option><option>23</option><option>24</option><option>25</option>
-            <option>26</option><option>27</option><option>28</option><option>29</option><option>30</option>
-            <option>31</option>
-          </select>
 
-          <label for="start-month">Month</label>
-          <select id="start-month" name="start_month" required>
-            <option value="" selected disabled>Month</option>
-            <option value="1">January</option><option value="2">February</option><option value="3">March</option>
-            <option value="4">April</option><option value="5">May</option><option value="6">June</option>
-            <option value="7">July</option><option value="8">August</option><option value="9">September</option>
-            <option value="10">October</option><option value="11">November</option><option value="12">December</option>
-          </select>
+<form class = "EditResource">
+<p>Resource title</p>
+<input type="text" placeholder="Enter event title" />
+<br>
+<label for="start">Start Date:</label>
+<input type="date" id="start" name="start">
+<br>
+<label for="end">End Date:</label>
+<input type="date" id="end" name="end">
+<br>
+<label for="start">Starting:</label>
+<input type="time" id="start" name="start" value="08:00">
+<label for="end">Until:</label>
+<input type="time" id="end" name="end" value="15:00">
+<br>
+<h4>Days Available</h4>
+<fieldset>
+  <label><input type="checkbox" name="days" value="mon"> MON</label>
+  <label><input type="checkbox" name="days" value="tue"> TUE</label>
+  <label><input type="checkbox" name="days" value="wed"> WED</label>
+  <label><input type="checkbox" name="days" value="thu"> THU</label>
+  <label><input type="checkbox" name="days" value="fri"> FRI</label>
+  <label><input type="checkbox" name="days" value="sat"> SAT</label>
+  <label><input type="checkbox" name="days" value="sun"> SUN</label>
+</fieldset>
+<p>Capacity</p>
+<input type="text" placeholder="Enter Available seats" />
+<br>
+<label for="desc">Description</label><br>
+<textarea id="desc" name="desc" rows="6" cols="auto" placeholder="Enter Resource Description"></textarea>
+<br>
+<br>
+<div class="button-group">
+  <input type="submit" value="Edit event" />
+  <button type="button" class="delete-btn">Delete event</button>
+</div>
+</form>
 
-          <label for="start-year">Year</label>
-          <select id="start-year" name="start_year" required>
-            <option value="" selected disabled>Year</option>
-            <option>2025</option><option>2026</option><option>2027</option><option>2028</option><option>2029</option><option>2030</option>
-          </select>
-        </fieldset>
-
-        <fieldset>
-          <legend>End Date</legend>
-
-          <label for="end-day">Day</label>
-          <select id="end-day" name="end_day" required>
-            <option value="" selected disabled>Day</option>
-            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
-            <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
-            <option>11</option><option>12</option><option>13</option><option>14</option><option>15</option>
-            <option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
-            <option>21</option><option>22</option><option>23</option><option>24</option><option>25</option>
-            <option>26</option><option>27</option><option>28</option><option>29</option><option>30</option>
-            <option>31</option>
-          </select>
-
-          <label for="end-month">Month</label>
-          <select id="end-month" name="end_month" required>
-            <option value="" selected disabled>Month</option>
-            <option value="1">January</option><option value="2">February</option><option value="3">March</option>
-            <option value="4">April</option><option value="5">May</option><option value="6">June</option>
-            <option value="7">July</option><option value="8">August</option><option value="9">September</option>
-            <option value="10">October</option><option value="11">November</option><option value="12">December</option>
-          </select>
-
-          <label for="end-year">Year</label>
-          <select id="end-year" name="end_year" required>
-            <option value="" selected disabled>Year</option>
-            <option>2025</option><option>2026</option><option>2027</option><option>2028</option><option>2029</option><option>2030</option>
-          </select>
-        </fieldset>
-
-    
-        <div>
-          <label for="time-window">Time Windows</label>
-          <select id="time-window" name="time_window" required>
-            <option value="every-hour" selected>Every Hour</option>
-            <option value="every-30">Every 30 Minutes</option>
-            <option value="every-15">Every 15 Minutes</option>
-            <option value="custom">Custom</option>
-          </select>
-        </div>
-
-        <fieldset>
-          <legend>Time Range</legend>
-
-          <div>
-            <label for="start-time">Starting</label>
-            <input id="start-time" name="start_time" type="time" value="08:00" required />
-          </div>
-
-          <div>
-            <label for="end-time">Until</label>
-            <input id="end-time" name="end_time" type="time" value="15:00" required />
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Days Available</legend>
-
-          <label><input type="checkbox" name="days[]" value="MON" /> MON</label>
-          <label><input type="checkbox" name="days[]" value="TUE" /> TUE</label>
-          <label><input type="checkbox" name="days[]" value="WED" /> WED</label>
-          <label><input type="checkbox" name="days[]" value="THU" /> THU</label>
-          <label><input type="checkbox" name="days[]" value="FRI" /> FRI</label>
-          <label><input type="checkbox" name="days[]" value="SAT" /> SAT</label>
-          <label><input type="checkbox" name="days[]" value="SUN" /> SUN</label>
-        </fieldset>
-
-        <div>
-          <label for="capacity">Capacity</label>
-          <input id="capacity" name="capacity" type="number" min="0" step="1" placeholder="Enter available seats" />
-        </div>
-
-        <fieldset>
-          <legend>Address</legend>
-
-          <div>
-            <label for="street">Street</label>
-            <input id="street" name="street" type="text" placeholder="eg: 1455 Blvd. De Maisonneuve" />
-          </div>
-
-          <div>
-            <label for="postal">Postal Code</label>
-            <input id="postal" name="postal_code" type="text" placeholder="eg: H3G 1M8" />
-          </div>
-        </fieldset>
-
-        <div>
-          <label for="description">Description</label>
-          <textarea id="description" name="description" rows="4" placeholder="Enter Resource Description"></textarea>
-        </div>
-
-        <fieldset>
-          <legend>Resource Images</legend>
-          <p>Upload images to use as event banner</p>
-          <input id="images" name="images" type="file" accept="image/*" multiple />
-        </fieldset>
-
-        <div>
-          <button type="submit">Edit Resource</button>
-        </div>
-      </form>
-    </main>
-  </div>
-
-    <div class="footer">
+  <div class="footer">
         <div class="column">
             <div class="col-top">
                 <figure class="concordia_logo">
@@ -232,6 +130,12 @@
         </div>
     </div>
 
-    
+  
 </body>
 </html>
+
+
+
+
+
+
