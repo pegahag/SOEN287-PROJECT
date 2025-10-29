@@ -9,21 +9,21 @@ Group project for SOEN287 - Managing university resources
 4- Bowen Yao 40269137
 
 # Installation guide: 
-1. Download and extract the compressed folder called SOEN287-PROJECT to your computer
+1- Download and extract the compressed folder called SOEN287-PROJECT to your computer
   - Make sure the folder keeps this structure (don’t move files around)
 
-2. Open the Website
+2- Open the Website
   - Open the SOEN287-PROJECT folder
   - Go to the pages sub-folder
   - Double-click catalogue.html — this is the starting page of the website: It will open directly in your web browser
 
-3. Optional: (Using Live Server)
+3- Optional: (Using Live Server)
   - If some features like images or JavaScript don’t load correctly, use VS Code’s Live Server extension:
   - Open the project folder in VS Code
   - Right-click on pages/catalogue.html
   - Click “Open with Live Server.”: The site will open automatically in your browser
 
-4. Troubleshooting
+4- Troubleshooting
   - If pages don’t display correctly, check that you open catalogue.html from the pages folder
   - If styles or scripts don’t load, make sure all folders (styles, scripts, data, images) stay in the same main directory
     
