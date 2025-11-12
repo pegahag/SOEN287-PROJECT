@@ -1,62 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/pages/header-footer.css">
+    <title>Bookings</title>
     <link rel="stylesheet" href="../styles/main.css">
-    <link rel="stylesheet" href="../styles/pages/resource_management.css">
-    <script src="../scripts/resource_management.js"></script>
-    <title>Resource Management</title>
+    <link rel="stylesheet" href="../styles/pages/header-footer.css">
 </head>
+
 <body>
-    <header>
-        <div class="header">
-        <figure class="concordia_logo">
-            <a href="catalogue.html">
-            <img src="../images/concordia_logo.png" alt="The Concordia logo. Stylish!">
-        </a></figure>
-        <div class="home_button">Home</div>
-        <div class="navilinks">
-            <a href="catalogue.html"class="navilink">Resources</a>
-            <a href="my_bookings.html"class="navilink">Calendar</a>
-            <a href="bookings.html" class="navilink">Administrator</a>
-            <a href="my_calendar.html"class="navilink">Create</a>
-            <a href="resource_management.html"class="navilink">Management</a>
-        </div>
-        <div class="account_buttons">
-            <button onclick="document.location='login.html'" class="signin_button" >Sign In</button>
-            <button onclick="document.location='register.html'"class="register_button">Register</button>
-        </div>
-    </div>
-    </header>
-    <div class="page_body"> 
-        <div class="description">
-            <h1>Resource Management</h1>
-            <p class="h1_subheading">Manage available resources</p>
-            <a href="bookings.html">View Booking Requests</a>
-        </div>
 
-        <div id="resourceList">
-            <table id="resourcesTable">
-              <tbody>
-                    <!-- Rows will be added here dynamically -->
-              </tbody>
-            </table>
-        </div>
+    <script src="/scripts/nav.js"></script>
+    <div id="navbar-container"></div>
 
-        <div class="new_resource">
-            <a href="../pages/createResource.html"><button class="create_resource">Create A New Resource</button></a>
-        </div>
-    </div>
+    <main>
 
+        <span>
+            <h2>Manage Booking Requests</h2>
+            <h3>Approve or Decline Requests For the Following Resource</h3>
+        </span>
+
+        <article class="booking-resource-card">
+            <img src="../images/bookings-event-banner.png" alt="Event Banner">
+            <p class="resource-name">Resource Name</p>
+            <p class="description">Description lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Praesent sed diam eu ipsum mattis rhoncus.</p>
+            <p class="timeslot">Weekdays 3pm - 7pm</p>
+        </article>
+
+        <span>
+            <h2>Pending Bookings</h2>
+            <h3>Users with current pending requests</h3>
+        </span>
+
+        <section class="booking-grid" id="booking-grid"></section>
+        <script src="/scripts/bookings.js"></script>
+
+
+    </main>
+
+
+
+
+
+    <footer></footer>
     <div class="footer">
         <div class="column">
             <div class="col-top">
                 <figure class="concordia_logo">
                     <a href="catalogue.html">
-                    <img src="../images/concordia_logo.png" alt="The Concordia logo. Stylish!">
-                </a></figure>
+                        <img src="../images/concordia_logo.png" alt="The Concordia logo. Stylish!">
+                    </a>
+                </figure>
             </div>
             <div class="col-links">
                 <div class="link">Website contact</div>
@@ -64,7 +60,7 @@
                 <div class="link">Website contact</div>
             </div>
         </div>
-    
+
         <div class="column">
             <div class="col-top">
                 <div class="header_top">Header</div>
@@ -103,8 +99,6 @@
             </div>
         </div>
     </div>
-
-    
 </body>
-    
+
 </html>

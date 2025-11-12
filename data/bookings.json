@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "resourceId": 1,
+    "userId": 2,
+    "date": "15-11-2025",
+    "startTime": "14:00",
+    "endTime": "16:00",
+    "purpose": "Attending Coding Workshop",
+    "status": "pending"
+  },
+  {
+    "id": 2,
+    "resourceId": 1,
+    "userId": 3,
+    "date": "18-11-2025",
+    "startTime": "10:00",
+    "endTime": "12:00",
+    "purpose": "Helping with Science Fair setup",
+    "status": "pending"
+  },
+  {
+    "id": 3,
+    "resourceId": 1,
+    "userId": 1,
+    "date": "20-11-2025",
+    "startTime": "09:30",
+    "endTime": "11:00",
+    "purpose": "Giving presentation at Auditorium B",
+    "status": "pending"
+  }
+]

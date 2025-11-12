@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,64 +9,50 @@
     <link rel="stylesheet" href="../styles/pages/description_pic_text.css">
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/pages/catalogue.css">
+
+
+
 </head>
+
 <body class="page-container">
-    <header>
- <div class="header">
-        <figure class="concordia_logo">
-            <a href="catalogue.html">
-            <img src="../images/concordia_logo.png" alt="The Concordia logo. Stylish!">
-        </a></figure>
-        <div class="home_button">Home</div>
-        <div class="navilinks">
-            <a href="catalogue.html"class="navilink">Resources</a>
-            <a href="my_bookings.html"class="navilink">Calendar</a>
-            <a href="bookings.html" class="navilink">Administrator</a>
-            <a href="my_calendar.html"class="navilink">Create</a>
-            <a href="resource_management.html"class="navilink">Management</a>
-        </div>
-        <div class="account_buttons">
-            <button onclick="document.location='login.html'" class="signin_button" >Sign In</button>
-            <button onclick="document.location='register.html'"class="register_button">Register</button>
-        </div>
-    </div>
 
-    </header>
+    <script src="/scripts/nav.js"></script>
+    <div id="navbar-container"></div>
 
-    
     <section id="description" class="description_pic_text">
         <div class="hero-content">
             <h1>Welcome to Our Resource Catalog</h1>
         </div>
     </section>
-    
+
     <section id="resources">
         <h2>Brows Resources</h2>
         <span class="h2_Subheading">Making Bookings From Following Catalogue</span>
-        <div id="resource_filters"> 
-          <button class="filter_button" data-filter="all" id="all_resources">All</button>
-          <button class="filter_button" data-filter="room" id="study_rooms">Study Rooms</button>
-          <button class="filter_button" data-filter="lab" id="labs">Labs</button>
-          <button class="filter_button" data-filter="sport_facility" id="sports_facilities">Sports Facilities</button>
-          <button class="filter_button" data-filter="equipment" id="specialized_equipments">Equipments</button>
+        <div id="resource_filters">
+            <button class="filter_button" data-filter="all" id="all_resources">All</button>
+            <button class="filter_button" data-filter="room" id="study_rooms">Study Rooms</button>
+            <button class="filter_button" data-filter="lab" id="labs">Labs</button>
+            <button class="filter_button" data-filter="sport_facility" id="sports_facilities">Sports Facilities</button>
+            <button class="filter_button" data-filter="equipment" id="specialized_equipments">Equipments</button>
         </div>
         <div id="resourceList">
             <table id="resourcesTable">
-              <tbody>
+                <tbody>
                     <!-- Rows will be added here dynamically -->
-              </tbody>
+                </tbody>
             </table>
         </div>
     </section>
     <script src="../scripts/catalogue.js"></script>
 
-<div class="footer">
+    <div class="footer">
         <div class="column">
             <div class="col-top">
                 <figure class="concordia_logo">
                     <a href="catalogue.html">
-                    <img src="../images/concordia_logo.png" alt="The Concordia logo. Stylish!">
-                </a></figure>
+                        <img src="../images/concordia_logo.png" alt="The Concordia logo. Stylish!">
+                    </a>
+                </figure>
             </div>
             <div class="col-links">
                 <div class="link">Website contact</div>
@@ -73,7 +60,7 @@
                 <div class="link">Website contact</div>
             </div>
         </div>
-    
+
         <div class="column">
             <div class="col-top">
                 <div class="header_top">Header</div>
@@ -113,6 +100,7 @@
         </div>
     </div>
 
-    
+
 </body>
+
 </html>

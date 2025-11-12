@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "username": "admin",
+    "password": "admin",
+    "role": "admin",
+    "createdEvents": [],
+    "bookedEvents": []
+  },
+  {
+    "id": 2,
+    "username": "user",
+    "password": "user",
+    "role": "student",
+    "createdEvents": [1],
+    "bookedEvents": [2, 3]
+  },
+  {
+    "id": 3,
+    "username": "bob",
+    "password": "abcd",
+    "role": "student",
+    "createdEvents": [],
+    "bookedEvents": [1]
+  }
+]

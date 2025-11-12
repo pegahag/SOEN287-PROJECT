@@ -13,12 +13,20 @@ Group project for SOEN287 - Managing university resources
   - Make sure the folder keeps this structure (don’t move files around)
 
 2- Open the Website
-  - In project root, Install dependencies and run the program by running the following commands
-  - npm install
-  - npm start
-  - website should now run at http://localhost:3000
+  - Open the SOEN287-PROJECT folder
+  - Go to the pages sub-folder
+  - Double-click catalogue.html — this is the starting page of the website: It will open directly in your web browser
 
---------------- // Readme to be updated // --------------------    
+3- Optional: (Using Live Server)
+  - If some features like images or JavaScript don’t load correctly, use VS Code’s Live Server extension:
+  - Open the project folder in VS Code
+  - Right-click on pages/catalogue.html
+  - Click “Open with Live Server.”: The site will open automatically in your browser
+
+4- Troubleshooting
+  - If pages don’t display correctly, check that you open catalogue.html from the pages folder
+  - If styles or scripts don’t load, make sure all folders (styles, scripts, data, images) stay in the same main directory
+    
 
 # List of features implemented (front end, mostly hardcoded):
 1- Catalogue page with all the available resources, where you can filter different resource types to make looking for one easier.
