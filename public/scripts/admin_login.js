@@ -24,12 +24,12 @@ document.getElementById("adminLoginForm").addEventListener("submit", async (e) =
     if (result.user.role !== "admin") {
       alert("You are not an admin");
 
-      // 立刻登出
+      
       await fetch("/api/auth/logout", { method: "POST" });
       return;
     }
 
-    // 真正 admin：跳到管理员页面
+   
     window.location.href = "/pages/bookings.html";
   } catch (err) {
     console.error("Admin login error:", err);
