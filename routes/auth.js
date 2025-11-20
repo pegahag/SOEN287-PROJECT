@@ -82,3 +82,6 @@ router.get("/me", (req, res) => {
 });
 
 module.exports = router;
+
+//login and admin login share the same /auth/login backend.
+//When distinguishing between admin and student, the determination is based solely on the user.role field 
