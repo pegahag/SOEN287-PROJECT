@@ -28,8 +28,10 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
       }
 
-      // Filter bookings for this resource
-      const filteredBookings = bookings.filter(b => b.resourceId === resourceId);
+      // filters only for bookings for this resource AND that are pending
+      const filteredBookings = bookings.filter(
+        b => b.resourceId === resourceId && b.status === "pending"
+      );
 
       // If no bookings found, show message
       grid.innerHTML = "";
