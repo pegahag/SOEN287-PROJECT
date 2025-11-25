@@ -2,10 +2,20 @@ document.getElementById("registerForm").addEventListener("submit", async (e) => 
   e.preventDefault();
 
   const formData = new FormData(e.target);
+
+  //Collect required fields for backend
   const data = {
     username: formData.get("username"),
+    email: formData.get("email"),
     password: formData.get("password")
   };
+
+  //validation
+  const confirmPassword = formData.get("confirmPassword");
+  if (data.password !== confirmPassword) {
+    alert("Passwords do not match");
+    return;
+  }
 
   try {
     const res = await fetch("/api/auth/register", {

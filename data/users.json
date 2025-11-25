@@ -3,6 +3,7 @@
     "id": 1,
     "username": "admin",
     "password": "admin",
+    "email": "admin@gmail.com",
     "role": "admin",
     "createdEvents": [],
     "bookedEvents": []
@@ -11,6 +12,7 @@
     "id": 2,
     "username": "user",
     "password": "user",
+    "email": "user@gmail.com",
     "role": "student",
     "createdEvents": [1],
     "bookedEvents": [2, 3]
@@ -19,6 +21,7 @@
     "id": 3,
     "username": "bob",
     "password": "abcd",
+    "email": "bob@gmail.com",
     "role": "student",
     "createdEvents": [],
     "bookedEvents": [1]
