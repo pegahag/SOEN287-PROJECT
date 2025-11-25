@@ -47,6 +47,10 @@ function renderResources(resources) {
     const typeNorm = normalizeType(resource);
     const id = resource.id; //  use this in the link when want to create a booking
 
+    // peak time + seats taken (for stats box)
+    const peakTime = resource.peakTime || '';
+    const seatsTaken = resource.seatsTaken ?? 0;
+
     const href = `event_page.html?mode=create&resource=${encodeURIComponent(id)}`;
 
     const td = document.createElement('td');
@@ -61,6 +65,17 @@ function renderResources(resources) {
       <span class="resource_location">${location}</span><br>
       <span class="resource_availability">${availability}</span><br>
       <span class="resource_meta">Capacity: ${capacity || '—'} | Status: ${status || '—'}</span>
+
+      <div class="stats">
+        <div class="stat">
+          <span class="label">Peak time:</span>
+          <span class="value">${peakTime || '—'}</span>
+        </div>
+        <div class="stat">
+          <span class="label">Capacity used:</span>
+          <span class="value">${capacity ? `${seatsTaken} / ${capacity}` : '—'}</span>
+        </div>
+      </div>
     `;
 
     tr.appendChild(td);
