@@ -44,12 +44,18 @@ function renderResources(resources) {
       `${resource.startDate || ''} ${resource.startHour || ''} → ${resource.endDate || ''} ${resource.endHour || ''}`.trim();
     const capacity = resource.capacity ?? '';
     const status = resource.status || 'open';
-
     const typeNorm = normalizeType(resource);
+    const id = resource.id; //  use this in the link when want to create a booking
+
+    const href = `event_page.html?mode=create&resource=${encodeURIComponent(id)}`;
 
     const td = document.createElement('td');
     td.innerHTML = `
-      <img class="resource_img" src="${image}" alt="${typeNorm || 'resource'}" style="width:100%; max-width:150px; height:auto;"><br>
+      <a href="${href}">
+        <img class="resource_img" src="${image}" alt="${typeNorm || 'resource'}"
+             style="width:100%; max-width:150px; height:auto;">
+      </a><br>
+
       <span class="resource_name"><strong>${name}</strong></span><br>
       <span class="resource_desc">${description}</span><br>
       <span class="resource_location">${location}</span><br>
@@ -101,7 +107,6 @@ function setupFilters() {
 
 async function initCatalogue() {
   try {
-    // 🔹 Use backend route instead of static JSON
     const res = await fetch('/api/resources', { cache: 'no-store' });
     if (!res.ok) {
       throw new Error(`HTTP error ${res.status}`);
