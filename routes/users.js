@@ -52,14 +52,29 @@ router.post("/", (req, res) => {
 router.put("/:id", (req, res) => {
   const users = loadData();
   const id = parseInt(req.params.id);
-  const updatedUser = req.body;
+  const { username, password } = req.body;
 
   const index = users.findIndex((u) => u.id === id);
   if (index === -1) return res.status(404).json({ success: false });
 
-  users[index] = { ...users[index], ...updatedUser };
-  saveData(users);
-  res.json({ success: true, user: users[index] });
+   if (
+    req.session.user &&
+    (req.session.user.id === id || req.session.user.role === "admin") // only the student itself or admin can update 
+  ){
+    if (username) users[index].username = username;
+    if (password) users[index].password = password;
+
+    saveData(users);
+
+    
+    if (req.session.user.id === id) {
+      req.session.user.username = users[index].username;
+    }
+
+    return res.json({ success: true, user: users[index] });
+  }
+
+  res.status(403).json({ success: false, message: "Not allowed" });
 });
 
 // Delete a user

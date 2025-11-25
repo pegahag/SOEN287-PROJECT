@@ -15,20 +15,31 @@
     <script src="../scripts/nav.js"></script>
     <div id="navbar-container"></div>
 
-
-
-    <form class="ManageP">
+    <form class="ManageP" id="profileForm">
         <h2 style="text-align: center; margin: 0 0 12px;">Manage Profile information</h2>
         <p style="text-align: center; margin: 0 0 12px;">Flavour text</p>
         <br>
+
+        
+        <input type="hidden" id="userId">
+
         <p>Modify Username</p>
-        <input type="text" placeholder="New UserName" />
-        <P>Modify Email</P>
-        <input type="email" placeholder="New Email" />
+        <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="New Username"
+            required
+        />
+
+        
+        <p>Modify Email</p>
+        <input type="email" id="email" placeholder="New Email" />
         <p>Modify Password</p>
-        <input type="password" placeholder="New Password" />
+        <input type="password" id="password" name="password" placeholder="New Password" />
         <p>Confirm Password</p>
-        <input type="password2" placeholder="Confirm Password" />
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" />
+
         <input type="submit" value="Save Changes" />
     </form>
 
@@ -87,7 +98,8 @@
         </div>
     </div>
 
-
+    
+    <script src="../scripts/profile.js"></script>
 </body>
 
 </html>
