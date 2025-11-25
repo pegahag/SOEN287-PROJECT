@@ -2,15 +2,11 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("form.CreateResource");
-  if (!form) {
-    console.error("CreateResource form not found");
-    return;
-  }
+  if (!form) return;
 
-  // getting the form elements
   const textInputs = form.querySelectorAll("input[type='text']");
-  const titleInput = textInputs[0];        //title
-  const capacityInput = textInputs[1];   // capacity
+  const titleInput = textInputs[0];
+  const capacityInput = textInputs[1];
   const dateInputs = form.querySelectorAll("input[type='date']");
   const startDateInput = dateInputs[0];
   const endDateInput = dateInputs[1];
@@ -19,10 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const endTimeInput = timeInputs[1];
   const descInput = form.querySelector("#desc");
   const dayCheckboxes = form.querySelectorAll("input[name='days']");
+  const typeSelect = document.getElementById("resourceType");
 
-  // handling form submission
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+
     const title = titleInput.value.trim();
     const startDate = startDateInput.value;
     const endDate = endDateInput.value;
@@ -30,10 +27,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const endHour = endTimeInput.value;
     const description = descInput.value.trim();
     const capacityStr = capacityInput.value.trim();
+    const typeRaw = typeSelect ? typeSelect.value : "";
 
-    // if the title was missing
     if (!title) {
       alert("Please enter a resource title.");
+      return;
+    }
+    if (!typeRaw) {
+      alert("Please select a resource type.");
       return;
     }
 
@@ -41,56 +42,58 @@ document.addEventListener("DOMContentLoaded", () => {
     if (capacityStr !== "") {
       const num = parseInt(capacityStr, 10);
       if (isNaN(num) || num < 0) {
-        alert("Capacity cannot be a negative number.");
+        alert("Invalid capacity.");
         return;
       }
       capacity = num;
     }
 
-   
+    let type = typeRaw;
+    if (typeRaw.toLowerCase() === "sport facility") {
+      type = "sport_facility";
+    }
+
+    let imagePath = "/images/bookings-event-banner.png";
+    if (type === "room") imagePath = "/images/studyroom.jpg";
+    else if (type === "sport_facility") imagePath = "/images/sport_facility.jpg";
+    else if (type === "lab") imagePath = "/images/computerlab.jpg";
+    else if (type === "equipment") imagePath = "/images/equipment.jpg";
+
     const dayOrder = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
     const weekdaysAvailable = dayOrder.map((dayVal) => {
       const cb = Array.from(dayCheckboxes).find((box) => box.value === dayVal);
       return cb && cb.checked ? 1 : 0;
     });
 
-    // building resource object 
     const newResource = {
-    
+      // id will be inserted by backend
       title,
       startDate,
       endDate,
       startHour,
       endHour,
+      peakTime: "",             
       weekdaysAvailable,
-      capacity: capacity,         
-      description,
-      seatsTaken: 0,               
-      status: "open",              
-      image: "../images/bookings-event-banner.png", 
       street: "",
       postalCode: "",
-      peakTime: ""                
+      description,
+      image: imagePath,
+      status: "open",
+      capacity,
+      seatsTaken: 0,
+      type
     };
 
     try {
       const res = await fetch("/api/resources", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newResource),
       });
 
-      if (!res.ok) {
-        throw new Error(`HTTP error ${res.status}`);
-      }
-
-      const data = await res.json();
-      console.log("Created resource:", data);
+      if (!res.ok) throw new Error(`HTTP error ${res.status}`);
 
       alert("Resource created successfully.");
-      // Go back to resource management page
       window.location.href = "resource_management.html";
     } catch (error) {
       console.error("Failed to create resource:", error);
