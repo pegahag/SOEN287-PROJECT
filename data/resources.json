@@ -7,23 +7,15 @@
     "startHour": "08:00",
     "endHour": "20:00",
     "peakTime": "12:00",
-    "weekdaysAvailable": [
-      1,
-      1,
-      1,
-      1,
-      1,
-      0,
-      0
-    ],
+    "weekdaysAvailable": [1,1,1,1,1,0,0],
     "street": "123 University Ave",
     "postalCode": "H3G 1X4",
     "description": "Quiet study room with 10 desks and whiteboards.",
-    "image": "/images/studyroom.png",
+    "image": "/images/studyroom.jpg",
     "status": "open",
     "capacity": 10,
     "seatsTaken": 4,
-    "typte": "room"
+    "type": "room"
   },
   {
     "id": 2,
@@ -33,23 +25,15 @@
     "startHour": "06:00",
     "endHour": "22:00",
     "peakTime": "9:00",
-    "weekdaysAvailable": [
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      0
-    ],
+    "weekdaysAvailable": [1,1,1,1,1,1,0],
     "street": "456 Fitness Blvd",
     "postalCode": "H3G 2Y7",
     "description": "Full-size gym with basketball court and fitness equipment.",
-    "image": "/images/sport_facility.png",
+    "image": "/images/sport_facility.jpg",
     "status": "open",
     "capacity": 50,
     "seatsTaken": 30,
-    "typte": "sport facility"
+    "type": "sport_facility"
   },
   {
     "id": 3,
@@ -59,22 +43,14 @@
     "startHour": "09:00",
     "endHour": "18:00",
     "peakTime": "13:00",
-    "weekdaysAvailable": [
-      1,
-      1,
-      1,
-      1,
-      1,
-      0,
-      0
-    ],
+    "weekdaysAvailable": [1,1,1,1,1,0,0],
     "street": "789 Event St",
     "postalCode": "H3G 3Z1",
     "description": "Auditorium with 200 seats and AV equipment for presentations.",
-    "image": "/images/studyroom.png",
+    "image": "/images/studyroom.jpg",
     "status": "open",
     "capacity": 200,
     "seatsTaken": 0,
-    "typte": "room"
+    "type": "room"
   }
 ]
