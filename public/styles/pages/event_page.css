@@ -5,9 +5,11 @@
     align-items: stretch;
     padding: 16px;
     gap: 16px;
-    margin: 20px;
+    margin-left: 300px;    
+    margin-right: 300px; 
     border: 1px solid #e6e6e6;
     border-radius: 12px;
+    justify-content: center ;
 }
 
 
@@ -16,6 +18,13 @@
     font-size: 16px;
     font-weight: 500;
     color: #000;
+}
+
+.dropdown_box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
 }
 
 .text_input {
@@ -57,7 +66,7 @@
 
 .dropdown_input {
     width: 100%;
-    max-width: 700px;
+    max-width: 80px;
     padding: 12px 16px;
     font-size: 16px;
     font-family: inherit;
@@ -98,7 +107,7 @@
     justify-content: space-between;
 }
 
-.event_title{
+.event_location{
     font-size: large;
 }
 
@@ -108,17 +117,26 @@
 }
 
 .event_availability{
-    background-color: rgb(185, 252, 185);
     height: 2--0px;
-    width: 70px;
+    border-radius: 12px;
+}
+
+.available{
     border: 5px solid rgb(185, 252, 185);
     color: #005b15;
-    border-radius: 8px;
-}
+    width: 80px;
+    background-color: rgb(185, 252, 185);}
+
+.unavailable{
+    border: 5px solid rgb(252, 185, 185);
+    color: #5b0000;
+    width: 100px;
+    background-color: rgb(252, 185, 185);}
+
 
 .book_reservation{
     background-color: rgb(123, 28, 44);
-    height: 30px;
+    height: 40px;
     line-height: 30px;
     text-align: center;
     width: 100%;

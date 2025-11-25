@@ -27,45 +27,43 @@ document.addEventListener("DOMContentLoaded",()=> {
     }
 
     function createEventCard(event){
-        //<div class="card">
+        //card
         const card = document.createElement("div");
         card.classList.add("card");
 
-        //<figure class="card_image">
-        const card_image = document.createElement("figure");
+        //image
+        const card_image = document.createElement("figure");       //container
         card_image.classList.add("card_image");
 
-        const img = document.createElement("img");
+        const img = document.createElement("img");              //image
         img.src="../images/test_img.jpg" 
         img.alt="A picture of a bear. Sweet!";
         card_image.appendChild(img);
 
-        //<div class="card_body"></div>
+        //body
         const card_body = document.createElement("div");
         card_body.classList.add("card_body");
 
-       //<h1 class="card_title">Resource title</h1>
+       //title
         const card_title = document.createElement("h1");
         card_title.classList.add("card_title");
         card_title.textContent = event.purpose;
 
-        //<p class="card_meta">Date | 12:00 - 14:00</p>
+        //time
         const card_meta = document.createElement("p");
         card_meta.classList.add("card_meta");
         card_meta.textContent = event.startTime + " - " + event.endTime;
 
 
-        //<p class="card_text">card description goes here</p>
+        //text
         const card_text = document.createElement("p");
         card_text.classList.add("card_text");
         card_text.textContent = date_converter(event.date);
 
-        //<div class="card_buttons">
+        //buttons
         const card_buttons = document.createElement("div");
         card_buttons.classList.add("card_buttons");
 
-        //<button class="card_button">Modify / Cancel</button>
-        
         const modify_link = document.createElement("a");
         modify_link.setAttribute("href", "event_page.html?mode=modify&event=" + event.id + "&resource=" + event.resourceId);
         const modify_button = document.createElement("button");

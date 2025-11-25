@@ -15,34 +15,7 @@
     <script src="../scripts/nav.js"></script>
     <div id="navbar-container"></div>
 
-
-    <div class="event_page">
-        <figure class="event_image">
-             <img src="../images/test_img.jpg" alt="A picture of a bear. Sweet!">
-        </figure>
-        <div class="event_info">
-            <div class="event_title">Event Title</div>
-            <div class="event_availability">Available</div>
-            <div class="event_text">I know what's going on here. I know what's going on here. Okay? I do. And if you want me to wander backstage to... "spill the beans..."... It's the final question, right? They're in the loop!</div>
-            <div class="subtitle_heading">Date</div>
-            <input type="date" class="calendar" id="date">
-            <label for="time-slot" class="form_label">Time-slot</label>
-                <select id="time-slot" class="dropdown_input">
-                    <option value="">Select a time</option>
-                        <option>08:00 - 10:00</option>
-                        <option>10:00 - 12:00</option>
-                        <option selected>12:00 - 14:00</option>
-                        <option>14:00 - 16:00</option>
-                    </select>
-            <label for="purpose" class="form_label">Purpose</label>
-            <input
-                type="text"
-                id="purpose"
-                class="text_input"
-                placeholder="Enter Purpose of Reservation"/>
-            <div button class="book_reservation">Book Reservation</div>
-        </div>
-    </div>
+    <div id="event_page"></div>
 
     <div class="footer">
         <div class="column">
@@ -97,5 +70,8 @@
             </div>
         </div>
     </div>
+
+    <script src="http://localhost:3000/scripts/event_page.js"></script>
+
 </body>
 </html>
