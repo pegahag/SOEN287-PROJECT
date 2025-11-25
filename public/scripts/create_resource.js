@@ -5,14 +5,19 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!form) return;
 
   const textInputs = form.querySelectorAll("input[type='text']");
-  const titleInput = textInputs[0];
-  const capacityInput = textInputs[1];
+  const titleInput = textInputs[0];       // title
+  const streetInput = textInputs[1];      // street
+  const postalCodeInput = textInputs[2];  // postal code
+  const capacityInput = textInputs[3];    // capacity
+
   const dateInputs = form.querySelectorAll("input[type='date']");
   const startDateInput = dateInputs[0];
   const endDateInput = dateInputs[1];
+
   const timeInputs = form.querySelectorAll("input[type='time']");
   const startTimeInput = timeInputs[0];
   const endTimeInput = timeInputs[1];
+
   const descInput = form.querySelector("#desc");
   const dayCheckboxes = form.querySelectorAll("input[name='days']");
   const typeSelect = document.getElementById("resourceType");
@@ -21,6 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
 
     const title = titleInput.value.trim();
+    const street = streetInput.value.trim();
+    const postalCode = postalCodeInput.value.trim();
     const startDate = startDateInput.value;
     const endDate = endDateInput.value;
     const startHour = startTimeInput.value;
@@ -72,10 +79,10 @@ document.addEventListener("DOMContentLoaded", () => {
       endDate,
       startHour,
       endHour,
-      peakTime: "",             
+      peakTime: "",
       weekdaysAvailable,
-      street: "",
-      postalCode: "",
+      street,          
+      postalCode,      
       description,
       image: imagePath,
       status: "open",

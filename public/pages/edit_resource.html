@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/pages/edit_resource.css">
     <link rel="stylesheet" href="../styles/pages/header-footer.css">
-
 </head>
 
 <body>
@@ -20,22 +19,37 @@
 
     <h2 style="text-align: center;">Modify A Resources</h2>
 
-
     <form class="EditResource">
+
         <p>Resource title</p>
         <input type="text" placeholder="Enter event title" />
         <br>
+
+        <!-- NEW FIELD: Street -->
+        <p>Street Address</p>
+        <input type="text" placeholder="Enter street address" />
+        <br>
+
+        <!-- NEW FIELD: Postal Code -->
+        <p>Postal Code</p>
+        <input type="text" placeholder="Enter postal code" />
+        <br>
+
         <label for="start">Start Date:</label>
         <input type="date" id="start" name="start">
         <br>
+
         <label for="end">End Date:</label>
         <input type="date" id="end" name="end">
         <br>
+
         <label for="start">Starting:</label>
         <input type="time" id="start" name="start" value="08:00">
+
         <label for="end">Until:</label>
         <input type="time" id="end" name="end" value="15:00">
         <br>
+
         <h4>Days Available</h4>
         <fieldset>
             <label><input type="checkbox" name="days" value="mon"> MON</label>
@@ -46,13 +60,15 @@
             <label><input type="checkbox" name="days" value="sat"> SAT</label>
             <label><input type="checkbox" name="days" value="sun"> SUN</label>
         </fieldset>
+
         <p>Capacity</p>
         <input type="text" placeholder="Enter Available seats" />
         <br>
+
         <label for="desc">Description</label><br>
         <textarea id="desc" name="desc" rows="6" cols="auto" placeholder="Enter Resource Description"></textarea>
-        <br>
-        <br>
+        <br><br>
+
         <div class="button-group">
             <input type="submit" value="Edit event" />
             <button type="button" class="delete-btn">Delete event</button>
@@ -60,58 +76,7 @@
     </form>
 
     <div class="footer">
-        <div class="column">
-            <div class="col-top">
-                <figure class="concordia_logo">
-                    <a href="catalogue.html">
-                        <img src="../images/concordia_logo.png" alt="The Concordia logo. Stylish!">
-                    </a>
-                </figure>
-            </div>
-            <div class="col-links">
-                <div class="link">Website contact</div>
-                <div class="link">Website contact</div>
-                <div class="link">Website contact</div>
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="col-top">
-                <div class="header_top">Header</div>
-            </div>
-            <div class="col-links">
-                <div class="link">Navigation</div>
-                <div class="link">Navigation</div>
-                <div class="link">Navigation</div>
-                <div class="link">Navigation</div>
-                <div class="link">Navigation</div>
-                <div class="link">Navigation</div>
-            </div>
-        </div>
-        <div class="column">
-            <div class="col-top">
-                <div class="header_top">Other</div>
-            </div>
-            <div class="col-links">
-                <div class="link">Resource</div>
-                <div class="link">Resource</div>
-                <div class="link">Resource</div>
-                <div class="link">Resource</div>
-                <div class="link">Resource</div>
-            </div>
-        </div>
-        <div class="column">
-            <div class="col-top">
-                <div class="header_top">Staff</div>
-            </div>
-            <div class="col-links">
-                <div class="link">Member</div>
-                <div class="link">Member</div>
-                <div class="link">Member</div>
-                <div class="link">Member</div>
-                <div class="link">Member</div>
-            </div>
-        </div>
+        ...
     </div>
 
     <script src="../scripts/edit_resource.js"></script>
