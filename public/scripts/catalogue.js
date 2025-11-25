@@ -3,10 +3,8 @@ const STATE = {
   currentFilter: 'all', // 'all' or 'room' or 'lab' or 'equipment' or 'sport_facility'
 };
 
-
 function normalizeType(resource) {
-  const raw_type = (resource.type).toString().trim().toLowerCase();
-
+  const raw_type = (resource.type || "").toString().trim().toLowerCase();
   if (raw_type === 'room') return 'room';
   if (raw_type === 'lab') return 'lab';
   if (raw_type === 'equipment') return 'equipment';
@@ -35,15 +33,17 @@ function renderResources(resources) {
   let tr = document.createElement('tr');
 
   resources.forEach((resource, index) => {
-    const {
-      image = '',
-      name = '',
-      description = '',
-      location = '',
-      availability = '',
-      capacity = '',
-      status = ''
-    } = resource;
+    const image = resource.image || '';
+    const name = resource.name || resource.title || '';
+    const description = resource.description || '';
+    const location =
+      resource.location ||
+      `${resource.street || ''} ${resource.postalCode || ''}`.trim();
+    const availability =
+      resource.availability ||
+      `${resource.startDate || ''} ${resource.startHour || ''} → ${resource.endDate || ''} ${resource.endHour || ''}`.trim();
+    const capacity = resource.capacity ?? '';
+    const status = resource.status || 'open';
 
     const typeNorm = normalizeType(resource);
 
@@ -80,7 +80,6 @@ function setupFilters() {
     const btn = e.target.closest('button[data-filter]');
     if (!btn) return;
 
-    // Update active visuals (optional)
     container.querySelectorAll('button[data-filter]').forEach(b => {
       const active = b === btn;
       b.classList.toggle('active', active);
@@ -102,7 +101,12 @@ function setupFilters() {
 
 async function initCatalogue() {
   try {
-    const res = await fetch('../data/resources.json', { cache: 'no-store' });
+    // 🔹 Use backend route instead of static JSON
+    const res = await fetch('/api/resources', { cache: 'no-store' });
+    if (!res.ok) {
+      throw new Error(`HTTP error ${res.status}`);
+    }
+
     const data = await res.json();
 
     STATE.allResources = Array.isArray(data) ? data : [];
