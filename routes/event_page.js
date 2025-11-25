@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded",()=> {
     ]).then(([resources, bookings]) => {       
        // let resource = resources.find(r => r.id == resourceID);
         resource = resources[0];
-        resource_img = resource.image; 
         resource_weekdaysAvailable =  resource.weekdaysAvailable;
+        resource_img = resource.image; 
         resource_start_time = resource.startTime;
         resource_end_time = resource.endTime;
 

@@ -11,8 +11,13 @@
     "street": "123 University Ave",
     "postalCode": "H3G 1X4",
     "description": "Quiet study room with 10 desks and whiteboards.",
+<<<<<<< Updated upstream
     "image": "/images/studyroom.jpg",
     "status": "open",
+=======
+    "image": "/images/bookings-event-banner.png",
+    "status": "blocked",
+>>>>>>> Stashed changes
     "capacity": 10,
     "seatsTaken": 4,
     "type": "room"
@@ -29,11 +34,18 @@
     "street": "456 Fitness Blvd",
     "postalCode": "H3G 2Y7",
     "description": "Full-size gym with basketball court and fitness equipment.",
+<<<<<<< Updated upstream
     "image": "/images/sport_facility.jpg",
     "status": "open",
     "capacity": 50,
     "seatsTaken": 30,
     "type": "sport_facility"
+=======
+    "image": "/images/bookings-event-banner.png",
+    "status": "open",
+    "capacity": 50,
+    "seatsTaken": 32
+>>>>>>> Stashed changes
   },
   {
     "id": 3,
@@ -47,8 +59,13 @@
     "street": "789 Event St",
     "postalCode": "H3G 3Z1",
     "description": "Auditorium with 200 seats and AV equipment for presentations.",
+<<<<<<< Updated upstream
     "image": "/images/studyroom.jpg",
     "status": "open",
+=======
+    "image": "/images/bookings-event-banner.png",
+    "status": "blocked",
+>>>>>>> Stashed changes
     "capacity": 200,
     "seatsTaken": 0,
     "type": "room"

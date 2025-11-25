@@ -4,9 +4,9 @@
     "resourceId": 1,
     "userId": 2,
     "date": "15-11-2025",
-    "startTime": "14:00",
-    "endTime": "16:00",
-    "purpose": "Attending Coding Workshop",
+    "startTime": "08:00",
+    "endTime": "09:00",
+    "purpose": "NOT Attending Coding Workshop",
     "status": "pending"
   },
   {

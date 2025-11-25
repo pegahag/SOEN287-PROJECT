@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     <div class="header">
       <figure class="concordia_logo">
         <a href="/index.html">
-          <img src="/public/images/concordia_logo.png" alt="The Concordia logo. Stylish!">
+          <img src="../images/concordia_logo.png" alt="The Concordia logo. Stylish!">
         </a>
       </figure>
       <div class="home_button" onclick="location.href='/'">Home</div>
