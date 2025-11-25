@@ -98,7 +98,7 @@ function computePeakTime(bookingsForResource) {
     }
   }
 
-  return peak; // e.g. "14:00"
+  return peak; 
 }
 
 // creating the row for each resource
