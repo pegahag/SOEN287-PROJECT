@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "title": "Campus Library Room A",
+    "title": "Study room A",
     "startDate": "01-11-2025",
     "endDate": "31-12-2025",
     "startHour": "08:00",
@@ -19,10 +19,11 @@
     "street": "123 University Ave",
     "postalCode": "H3G 1X4",
     "description": "Quiet study room with 10 desks and whiteboards.",
-    "image": "/public/images/test_img.jpg",
-    "status": "blocked",
+    "image": "/images/studyroom.png",
+    "status": "open",
     "capacity": 10,
-    "seatsTaken": 56
+    "seatsTaken": 4,
+    "typte": "room"
   },
   {
     "id": 2,
@@ -44,10 +45,11 @@
     "street": "456 Fitness Blvd",
     "postalCode": "H3G 2Y7",
     "description": "Full-size gym with basketball court and fitness equipment.",
-    "image": "/public/images/bookings-event-banner.png",
+    "image": "/images/sport_facility.png",
     "status": "open",
     "capacity": 50,
-    "seatsTaken": 30
+    "seatsTaken": 30,
+    "typte": "sport facility"
   },
   {
     "id": 3,
@@ -69,9 +71,10 @@
     "street": "789 Event St",
     "postalCode": "H3G 3Z1",
     "description": "Auditorium with 200 seats and AV equipment for presentations.",
-    "image": "/public/images/bookings-event-banner.png",
-    "status": "blocked",
+    "image": "/images/studyroom.png",
+    "status": "open",
     "capacity": 200,
-    "seatsTaken": 0
+    "seatsTaken": 0,
+    "typte": "room"
   }
 ]
