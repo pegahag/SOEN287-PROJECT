@@ -32,14 +32,11 @@ Once these commands are complete, the website will be available in your browser 
   b. A page to modify the booking
 5- The option to manage and modify profile information, such as user and password, for all users of the website
 6- Make the statistics to be dynamically updated
-
-
-# List of features to be implemented:
-1- Retrieve information for users, resources, and bookings dynamically
-2- Implement basic CRUD operations (create, edit, delete) for all resource and booking data.
-3- Implement backend login and signup validation with session management
-4- Enable users to create, modify, and cancel bookings dynamically
-5- Prevent overlapping bookings and automatically update resource availability
-6- Link the admin request page to the database so that accept/reject actions update the system in real time
-7- Allow users to update their profile details dynamically through backend routes
-8- Display confirmed bookings dynamically on each user’s calendar page
+7- Retrieve information for users, resources, and bookings dynamically
+8- Implement basic CRUD operations (create, edit, delete) for all resource and booking data.
+9- Implement backend login and signup validation with session management
+10- Enable users to create, modify, and cancel bookings dynamically
+11- Prevent overlapping bookings and automatically update resource availability
+12- Link the admin request page to the database so that accept/reject actions update the system in real time
+13- Allow users to update their profile details dynamically through backend routes
+14- Display confirmed bookings dynamically on each user’s calendar page
