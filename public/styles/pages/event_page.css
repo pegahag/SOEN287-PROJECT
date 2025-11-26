@@ -1,15 +1,36 @@
 /*EVENT PAGE*/
+
+.main_page{
+    display: flex;
+    align-items: stretch;
+    justify-content: center ;
+
+}
+
 .event_page{
     display: flex;
     flex-direction: row;
     align-items: stretch;
     padding: 16px;
     gap: 16px;
-    margin-left: 300px;    
-    margin-right: 300px; 
     border: 1px solid #e6e6e6;
     border-radius: 12px;
     justify-content: center ;
+    width: 700px;
+}
+
+.error_page{
+    text-align:center;
+    margin-left: 300px;    
+    margin-right: 300px; 
+    padding: 20px;
+    border: 1px solid #ac0000;
+    color:rgb(90, 0, 15);
+    border-radius: 10px;
+    background-color: #ff8d8d;
+    margin-top: 100px;
+    margin-bottom: 100px;
+
 }
 
 

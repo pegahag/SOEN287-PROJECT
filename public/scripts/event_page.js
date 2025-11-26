@@ -1,5 +1,7 @@
 let resource_img;
 let resource;
+let resource_title;
+let user;
 let resource_start;
 let resource_end;
 let booking_purpose;
@@ -8,43 +10,82 @@ let resource_weekdaysAvailable;
 let date_input;
 let resource_capacity;
 let resource_seats_taken;
+let bookingID;
+let resourceID;
+let event_info;
+let booking;
 
 //Extracting parameters
 const params = new URLSearchParams(window.location.search);
 const mode = params.get("mode");
-const bookingID = params.get("booking");
-const resourceID = params.get("resource");
+resourceID = params.get("resource");
+if(mode=="create"){
+    bookingID = false;
+}
+if(mode=="modify"){
+ bookingID = params.get("booking");
+}
+const userID = params.get("user");
 
 //GETTING JSON
 document.addEventListener("DOMContentLoaded",()=> {
     const container = document.getElementById("event_page");
     Promise.all([
         fetch("/api/resources").then(r => r.json()),
-        fetch("/api/bookings").then(b => b.json())
-    ]).then(([resources, bookings]) => {  
+        fetch("/api/bookings").then(b => b.json()),
+        fetch("/api/users").then(u => u.json())
+    ]).then(([resources, bookings, users]) => {  
 //Extracting data into variables
-        resource = resources.find(r => r.id == resourceID);
-        resource_img = resource.image; 
-        resource_weekdaysAvailable =  resource.weekdaysAvailable;
-        resource_capacity = resource.capacity;
-        resource_seats_taken = resource.seatsTaken;
-        resource_start = resource.startHour;
-        resource_end = resource.endHour;
-
         if (mode=="modify"){
-        let booking = bookings.find(b => b.id == bookingID);
-        booking_date = booking.date;
-        booking_purpose = booking.purpose;
+            booking = bookings.find(b => b.id == bookingID);
+            if(booking!=null){
+                booking_date = booking.date;
+                booking_purpose = booking.purpose;
+                resourceID = booking.resourceId;}}
+        resource = resources.find(r => r.id == resourceID);
+        if(resource != null){
+            resource_img = resource.image; 
+            resource_title = resource.title;
+            resource_weekdaysAvailable =  resource.weekdaysAvailable;
+            resource_capacity = resource.capacity;
+            resource_seats_taken = resource.seatsTaken;
+            resource_start = resource.startHour;
+            resource_end = resource.endHour;}
+        user = users.find(u => u.id == userID);
 
+    if(mode=="modify"&&(bookingID==null||booking==null))
+        event_info = throw_error("bookingNotFound");
+    else if(userID==null||user==null)
+        event_info = throw_error("userNotFound");
+    else if(resourceID==null||resource==null)
+        event_info = throw_error("resourceNotFound");
+    else{
+        event_info = build_page();
     }
-    const event_info = build_page();
     container.appendChild(event_info);
  });
 });
 
 //BUILD PAGE FUNCTION
+
+//Error if info mismatched
+function throw_error(error_type){
+    const error_page = document.createElement("div");
+    error_page.classList.add("error_page");
+    if(error_type == "userNotFound")
+        error_page.textContent = "Error: User not found";
+    if(error_type == "resourceNotFound")
+        error_page.textContent = "Error: Resource not found";
+    if(error_type == "bookingNotFound")
+        error_page.textContent = "Error: Booking not found";
+    return error_page;
+}
+
 function build_page(){
     //main page
+    const main_page = document.createElement("div");
+    main_page.classList.add("main_page");
+
     const event_page = document.createElement("div");
     event_page.classList.add("event_page");
 
@@ -58,13 +99,13 @@ function build_page(){
     const img = document.createElement("img");
 
     img.classList.add("img");                                  //image
-    img.src = "/images/test_img.jpg"
+    img.src = resource_img;
     console.log(img.src);
     img.alt = "banner image";
 
     //calendar
     const subtitle_heading = document.createElement("div"); //label
-    subtitle_heading.classList.add("subtitle_heading");
+    subtitle_heading.classList.add("form_label");
     subtitle_heading.textContent = "Date";
 
     date_input = document.createElement("input");           //calendar
@@ -79,7 +120,7 @@ function build_page(){
     //title
     const event_location = document.createElement("div");
     event_location.classList.add("event_location");
-    event_location.textContent = "PLACEHOLDER TEXT COME BACK TO ME PLEASE";
+    event_location.textContent = resource_title;
 
  
     //timeslot   
@@ -224,10 +265,10 @@ function build_page(){
     }
     //update a booking
     function updateBooking(booking){
-        fetch("http://localhost:3000/api/bookings",{
+        fetch("http://localhost:3000/api/bookings/" + bookingID,{
             method: "PUT",
             headers: {
-                "Content-Type": "applications/json"
+                "Content-Type": "application/json"
             },
             body: JSON.stringify(booking)
         })
@@ -270,8 +311,8 @@ function build_page(){
     book_reservation.addEventListener("click", () => {
         if(mode=="create"){
             submitBooking({
-                resourceId: resource,
-                userId: 3,
+                resourceId: Number(resourceID),
+                userId: Number(userID),
                 date: format_date(),
                 startTime: start_dropdown_input.value,
                 endTime: end_dropdown_input.value,
@@ -280,9 +321,6 @@ function build_page(){
          });}
         if(mode=="modify"){
             updateBooking({
-                id: bookingID,
-                resourceId: resourceID,
-                userId: 3,
                 date: format_date(),
                 startTime: start_dropdown_input.value,
                 endTime: end_dropdown_input.value,
@@ -293,6 +331,7 @@ function build_page(){
     });
 
     //stitch everything together
+    main_page.appendChild(event_page);
     event_page.appendChild(image_container);
     image_container.appendChild(img);
     event_page.append(event_info);
@@ -310,5 +349,5 @@ function build_page(){
     dropdown_box.appendChild(end_dropdown_input);
     purpose.appendChild(purpose_box);
 
-    return event_page;
+    return main_page;
 }

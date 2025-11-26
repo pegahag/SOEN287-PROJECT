@@ -6,114 +6,81 @@
   <title>Create Resource</title>
   <link rel ="stylesheet" href = "../styles/main.css" >
   <link rel ="stylesheet" href = "../styles/pages/createResource.css" >
-<link rel ="stylesheet" href = "../styles/pages/header-footer.css" >
-
+  <link rel ="stylesheet" href = "../styles/pages/header-footer.css" >
 </head>
+
 <body>
 
     <script src="../scripts/nav.js"></script>
     <div id="navbar-container"></div>
 
-<img src="../images/CreateResource.jpg" width="100%" height=auto >
+    <img src="../images/CreateResource.jpg" width="100%" height="auto">
   
-<h2 style="text-align: center;">Create A New Resources</h2>
-<p style="text-align: center;">Flavour text</p>
+    <h2 style="text-align: center;">Create A New Resource</h2>
+    <p style="text-align: center;">Flavour text</p>
 
-<form class = "CreateResource">
-<p>Resource title</p>
-<input type="text" placeholder="Enter event title" />
-<br>
-<label for="start">Start Date:</label>
-<input type="date" id="start" name="start">
-<br>
-<label for="end">End Date:</label>
-<input type="date" id="end" name="end">
-<br>
-<label for="start">Starting:</label>
-<input type="time" id="start" name="start" value="08:00">
-<label for="end">Until:</label>
-<input type="time" id="end" name="end" value="15:00">
-<br>
-<h4>Days Available</h4>
-<fieldset>
-  <label><input type="checkbox" name="days" value="mon"> MON</label>
-  <label><input type="checkbox" name="days" value="tue"> TUE</label>
-  <label><input type="checkbox" name="days" value="wed"> WED</label>
-  <label><input type="checkbox" name="days" value="thu"> THU</label>
-  <label><input type="checkbox" name="days" value="fri"> FRI</label>
-  <label><input type="checkbox" name="days" value="sat"> SAT</label>
-  <label><input type="checkbox" name="days" value="sun"> SUN</label>
-</fieldset>
-<p>Capacity</p>
-<input type="text" placeholder="Enter Available seats" />
-<br>
-<label for="desc">Description</label><br>
-<textarea id="desc" name="desc" rows="6" cols="auto" placeholder="Enter Resource Description"></textarea>
-<br>
-<br>
-<input type="submit" value="Create event" />
-</form>
+    <form class="CreateResource">
 
-  <div class="footer">
-        <div class="column">
-            <div class="col-top">
-                <figure class="concordia_logo">
-                    <a href="catalogue.html">
-                    <img src="../images/concordia_logo.png" alt="The Concordia logo. Stylish!">
-                </a></figure>
-            </div>
-            <div class="col-links">
-                <div class="link">Website contact</div>
-                <div class="link">Website contact</div>
-                <div class="link">Website contact</div>
-            </div>
-        </div>
-    
-        <div class="column">
-            <div class="col-top">
-                <div class="header_top">Header</div>
-            </div>
-            <div class="col-links">
-                <div class="link">Navigation</div>
-                <div class="link">Navigation</div>
-                <div class="link">Navigation</div>
-                <div class="link">Navigation</div>
-                <div class="link">Navigation</div>
-                <div class="link">Navigation</div>
-            </div>
-        </div>
-        <div class="column">
-            <div class="col-top">
-                <div class="header_top">Other</div>
-            </div>
-            <div class="col-links">
-                <div class="link">Resource</div>
-                <div class="link">Resource</div>
-                <div class="link">Resource</div>
-                <div class="link">Resource</div>
-                <div class="link">Resource</div>
-            </div>
-        </div>
-        <div class="column">
-            <div class="col-top">
-                <div class="header_top">Staff</div>
-            </div>
-            <div class="col-links">
-                <div class="link">Member</div>
-                <div class="link">Member</div>
-                <div class="link">Member</div>
-                <div class="link">Member</div>
-                <div class="link">Member</div>
-            </div>
-        </div>
-    </div>
+        <p>Resource title</p>
+        <input type="text" placeholder="Enter event title" />
+        <br>
 
-  
+        <p>Resource Type</p>
+        <select id="resourceType">
+            <option value="">Select Type</option>
+            <option value="room">Room</option>
+            <option value="sport facility">Sport Facility</option>
+            <option value="lab">Lab</option>
+            <option value="equipment">Equipment</option>
+        </select>
+        <br><br>
+
+        <p>Location (Street)</p>
+        <input type="text" id="street" placeholder="Enter street address">
+
+        <p>Postal Code</p>
+        <input type="text" id="postalCode" placeholder="H3G 1X4">
+        <br><br>
+
+        <label for="start">Start Date:</label>
+        <input type="date" id="start" name="start">
+        <br>
+
+        <label for="end">End Date:</label>
+        <input type="date" id="end" name="end">
+        <br>
+
+        <label for="start">Starting:</label>
+        <input type="time" id="start" name="start" value="08:00">
+
+        <label for="end">Until:</label>
+        <input type="time" id="end" name="end" value="15:00">
+        <br>
+
+        <h4>Days Available</h4>
+        <fieldset>
+            <label><input type="checkbox" name="days" value="mon"> MON</label>
+            <label><input type="checkbox" name="days" value="tue"> TUE</label>
+            <label><input type="checkbox" name="days" value="wed"> WED</label>
+            <label><input type="checkbox" name="days" value="thu"> THU</label>
+            <label><input type="checkbox" name="days" value="fri"> FRI</label>
+            <label><input type="checkbox" name="days" value="sat"> SAT</label>
+            <label><input type="checkbox" name="days" value="sun"> SUN</label>
+        </fieldset>
+
+        <p>Capacity</p>
+        <input type="text" placeholder="Enter Available seats" />
+        <br>
+
+        <label for="desc">Description</label><br>
+        <textarea id="desc" name="desc" rows="6" cols="auto" placeholder="Enter Resource Description"></textarea>
+        <br><br>
+
+        <input type="submit" value="Create event" />
+    </form>
+
+    <div class="footer">...</div>
+
+    <script src="../scripts/create_resource.js"></script>
 </body>
 </html>
-
-
-
-
-
-

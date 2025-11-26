@@ -28,46 +28,72 @@ router.post("/login", (req, res) => {
   if (!user) return res.status(401).json({ success: false, message: "Invalid credentials" });
 
   // store user info in session
-  req.session.user = { id: user.id,
-                       username: user.username,
-                      role: user.role };
+  req.session.user = { id: user.id, username: user.username, email: user.email, role: user.role };
   res.json({ success: true, user: req.session.user });
 });
 
-//REGISTER
-router.post("/register" , (req,res) => {
-  const {username,password} = req.body;
+// REGISTER (students only)
+router.post("/register", (req, res) => {
+  const { username, email, password } = req.body;
   let users = loadUsers();
 
+  // Check for duplicate username
   if (users.some((u) => u.username === username)) {
     return res.json({ success: false, message: "Username already taken" });
   }
 
+  // Check for duplicate email
+  if (users.some((u) => u.email === email)) {
+    return res.json({ success: false, message: "Email already in use" });
+  }
+
   const newId = users.length > 0 ? Math.max(...users.map((u) => u.id)) + 1 : 1;
 
-   const newUser = {
-    id: newId,
-    username,
-    password,
-    role: "student", //register only happened in student. (in reality u cannot register as an admin! [I believe])
-    createdEvents: [],
-    bookedEvents: []
-  };
+  const newUser = {id: newId, username, email, password, role: "student", createdEvents: [], bookedEvents: [],};
 
   users.push(newUser);
   saveUsers(users);
 
-  // finished regsiter 
-  req.session.user = {
-    id: newUser.id,
-    username: newUser.username,
-    role: newUser.role
-  };
+  // Automatically log the new user in
+  req.session.user = {id: newUser.id,username: newUser.username,email: newUser.email,role: newUser.role,};
 
   res.json({ success: true, user: req.session.user });
+});
 
-})
+// ADMIN REGISTER
+router.post("/admin/register", (req, res) => {
+  const currentUser = req.session.user;
 
+  // Only logged-in admins can create new admin accounts
+  if (!currentUser || currentUser.role !== "admin") {
+    return res
+      .status(403)
+      .json({ success: false, message: "Only admins can create admin users" });
+  }
+
+  const { username, email, password } = req.body;
+  let users = loadUsers();
+
+  // Check for duplicate username
+  if (users.some((u) => u.username === username)) {
+    return res.json({ success: false, message: "Username already taken" });
+  }
+
+  // Check for duplicate email
+  if (users.some((u) => u.email === email)) {
+    return res.json({ success: false, message: "Email already in use" });
+  }
+
+  const newId = users.length > 0 ? Math.max(...users.map((u) => u.id)) + 1 : 1;
+
+  const newUser = {id: newId,username,email,password,role: "admin",      createdEvents: [],bookedEvents: [],};
+
+  users.push(newUser);
+  saveUsers(users);
+
+   
+  res.json({ success: true });
+});
 
 // LOGOUT
 router.post("/logout", (req, res) => {
