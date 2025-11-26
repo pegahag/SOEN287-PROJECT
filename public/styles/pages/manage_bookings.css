@@ -9,29 +9,39 @@
     margin-left: 30px;
 }
 
+.calendars{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-right: 32px;    
+    margin-left: 32px;     
+    margin-bottom: 30px;
+    margin-left: 30px;
+}
+
 /* CARDS */
 .titles{
-    margin-left: 400px;    
-    margin-right: 400px; 
     margin-top: 20px;   
 }
 
 .body{
     margin: 90px;
-    
 }
 
 .card_list{
     display: flex;
+    max-width: 600px;
     flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
     gap: 16px;
     padding-bottom: 20px;
+    margin: 0 auto;
     list-style: none;
 }
 
 .card{
-    margin-left: 400px;    
-    margin-right: 400px;   
+    max-width: 600px;    
     display: flex;
     flex-direction: row;
     align-items: stretch;

@@ -1,7 +1,8 @@
 let resource_img;
 let resource;
 let resource_title;
-let user;
+let userID;
+let user
 let resource_start;
 let resource_end;
 let booking_purpose;
@@ -25,8 +26,6 @@ if(mode=="create"){
 if(mode=="modify"){
  bookingID = params.get("booking");
 }
-const userID = params.get("user");
-
 //GETTING JSON
 document.addEventListener("DOMContentLoaded",()=> {
     const container = document.getElementById("event_page");
@@ -41,7 +40,10 @@ document.addEventListener("DOMContentLoaded",()=> {
             if(booking!=null){
                 booking_date = booking.date;
                 booking_purpose = booking.purpose;
-                resourceID = booking.resourceId;}}
+                resourceID = booking.resourceId;
+                console.log(resourceID);
+            }}
+        console.log(resourceID);
         resource = resources.find(r => r.id == resourceID);
         if(resource != null){
             resource_img = resource.image; 
@@ -51,22 +53,24 @@ document.addEventListener("DOMContentLoaded",()=> {
             resource_seats_taken = resource.seatsTaken;
             resource_start = resource.startHour;
             resource_end = resource.endHour;}
-        user = users.find(u => u.id == userID);
 
-    if(mode=="modify"&&(bookingID==null||booking==null))
-        event_info = throw_error("bookingNotFound");
-    else if(userID==null||user==null)
-        event_info = throw_error("userNotFound");
-    else if(resourceID==null||resource==null)
-        event_info = throw_error("resourceNotFound");
-    else{
-        event_info = build_page();
-    }
-    container.appendChild(event_info);
- });
-});
-
-//BUILD PAGE FUNCTION
+        //checking login info
+        fetch("/api/auth/me").then(res => res.json()).then(data =>{
+        const user = data.user;    
+        console.log(user.id)
+            if (user) 
+                userID = user.id;
+        if(mode=="modify"&&(bookingID==null||booking==null))
+            event_info = throw_error("bookingNotFound");
+        else if(userID==null)
+            event_info = throw_error("userNotFound");
+        else if(resourceID==null||resource==null)
+            event_info = throw_error("resourceNotFound");
+        else{
+            event_info = build_page();
+        }
+        container.appendChild(event_info);
+    })});});
 
 //Error if info mismatched
 function throw_error(error_type){
@@ -81,8 +85,11 @@ function throw_error(error_type){
     return error_page;
 }
 
+//BUILD PAGE FUNCTION
+
 function build_page(){
     //main page
+    console.log(resource_title);
     const main_page = document.createElement("div");
     main_page.classList.add("main_page");
 
@@ -100,7 +107,6 @@ function build_page(){
 
     img.classList.add("img");                                  //image
     img.src = resource_img;
-    console.log(img.src);
     img.alt = "banner image";
 
     //calendar
@@ -151,6 +157,11 @@ function build_page(){
         const optEl = document.createElement("option");
         optEl.textContent = text;
         end_dropdown_input.appendChild(optEl);
+    }
+
+    if (mode === "modify" && booking) {
+        start_dropdown_input.value = booking.startTime;
+        end_dropdown_input.value   = booking.endTime;
     }
 
     //purpose
@@ -235,13 +246,10 @@ function build_page(){
         event_availability.textContent = "Unavailable";
         const dateIndex = check_date().getDay;;
         if (resource_weekdaysAvailable[dateIndex] == 0){
-            console.log("its not available today");
             return false;}
         if (resource_capacity == resource_seats_taken){
-            console.log("its not available cause chairs");
             return false;}
         if(!start_dropdown_input||!end_dropdown_input){
-            console.log("it aint real dog!");
             return false;}
         if (Number((start_dropdown_input.value.slice(0,2))>Number(end_dropdown_input.value.slice(0,2))||(start_dropdown_input.value.slice(0,2))==Number(end_dropdown_input.value.slice(0,2))&&Number(start_dropdown_input.value.slice(3,5))>=Number(end_dropdown_input.value.slice(3,5)))){
             return false;
@@ -310,6 +318,7 @@ function build_page(){
     //listener to submit
     book_reservation.addEventListener("click", () => {
         if(mode=="create"){
+            
             submitBooking({
                 resourceId: Number(resourceID),
                 userId: Number(userID),
@@ -318,7 +327,9 @@ function build_page(){
                 endTime: end_dropdown_input.value,
                 purpose: purpose_box.value,
                 status: "pending"
-         });}
+         });
+         alert("Your booking has been successfully saved.");
+         window.location.href = "../pages/my_bookings.html";        }
         if(mode=="modify"){
             updateBooking({
                 date: format_date(),
@@ -327,7 +338,8 @@ function build_page(){
                 purpose: purpose_box.value,
                 status: "pending"
             })
-        }
+            alert("Your booking has been successfully modified.");
+            window.location.href = "../pages/my_bookings.html";        }
     });
 
     //stitch everything together

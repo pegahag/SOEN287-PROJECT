@@ -1,13 +1,12 @@
 document.addEventListener("DOMContentLoaded",()=> {
     const container = document.getElementById("card_list");
-    fetch("../../data/bookings.json")
+    fetch("http://localhost:3000/api/bookings")
     .then(response => {
         if (!response.ok){
             throw new Error("Network response was not ok");
         }
         return response.json();
     })
-
     .then(events => {
         events.forEach(eventData => {
             const card = createEventCard(eventData);
@@ -67,11 +66,10 @@ document.addEventListener("DOMContentLoaded",()=> {
         //<button class="card_button">Modify / Cancel</button>
         
         const modify_link = document.createElement("a");
-        modify_link.setAttribute("href", "event_page.html?mode=modify&event=" + event.id + "&resource=" + event.resourceId);
+        modify_link.setAttribute("href", "event_page.html?mode=modify&booking=" + booking.id + "&resource=" + event.resourceId);
         const modify_button = document.createElement("button");
         modify_button.classList.add("card_button");
         modify_button.textContent = "Modify";
-
 
         const cancel_button = document.createElement("button")
         cancel_button.classList.add("card_button");
