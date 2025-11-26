@@ -10,8 +10,8 @@
   },
   {
     "id": 2,
-    "username": "amara",
-    "password": "myfavouritepasswordever",
+    "username": "user",
+    "password": "user",
     "email": "user@gmail.com",
     "role": "student",
     "createdEvents": [

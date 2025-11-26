@@ -10,8 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       <div class="navilinks">
         <a href="../pages/catalogue.html" class="navilink">Resources</a>
         <a href="../pages/my_bookings.html" class="navilink user-only">Calendar</a>
-        <a href="../pages/bookings.html" class="navilink admin-only">Administrator</a>
-        <a href="../pages/event_page.html" class="navilink admin-only">Create</a>
+        <a href="../pages/createResource.html" class="navilink admin-only">Create</a>
         <a href="../pages/resource_management.html" class="navilink admin-only">Management</a>
       </div>
       <div class="account_buttons" id="accountButtons">
