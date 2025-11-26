@@ -30,23 +30,13 @@
     "status": "pending"
   },
   {
-    "resourceId": 1,
-    "userId": 4,
-    "date": "10-11-2025",
-    "startTime": "10:00",
-    "endTime": "12:30",
-    "purpose": "Studyyyyy",
-    "status": "pending",
-    "id": 4
-  },
-  {
     "resourceId": 2,
     "userId": 4,
-    "date": "11-11-2025",
+    "date": "26-11-2025",
     "startTime": "06:00",
     "endTime": "06:30",
-    "purpose": "workin out",
+    "purpose": "To work out",
     "status": "pending",
-    "id": 5
+    "id": 4
   }
 ]
