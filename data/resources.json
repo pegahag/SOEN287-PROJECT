@@ -48,7 +48,11 @@
     "image": "/images/bookings-event-banner.png",
     "status": "open",
     "capacity": 50,
+<<<<<<< Updated upstream
     "seatsTaken": 33
+=======
+    "seatsTaken": 32
+>>>>>>> Stashed changes
   },
   {
     "id": 3,
