@@ -49,7 +49,11 @@
     "status": "open",
     "capacity": 50,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     "seatsTaken": 33
+=======
+    "seatsTaken": 32
+>>>>>>> Stashed changes
 =======
     "seatsTaken": 32
 >>>>>>> Stashed changes

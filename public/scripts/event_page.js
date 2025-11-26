@@ -2,8 +2,12 @@ let resource_img;
 let resource;
 let resource_title;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 let userID;
 let user
+=======
+let user;
+>>>>>>> Stashed changes
 =======
 let user;
 >>>>>>> Stashed changes
@@ -31,7 +35,10 @@ if(mode=="modify"){
  bookingID = params.get("booking");
 }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 const userID = params.get("user");
 
 >>>>>>> Stashed changes
@@ -50,10 +57,14 @@ document.addEventListener("DOMContentLoaded",()=> {
                 booking_date = booking.date;
                 booking_purpose = booking.purpose;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 resourceID = booking.resourceId;
                 console.log(resourceID);
             }}
         console.log(resourceID);
+=======
+                resourceID = booking.resourceId;}}
+>>>>>>> Stashed changes
 =======
                 resourceID = booking.resourceId;}}
 >>>>>>> Stashed changes
@@ -66,6 +77,7 @@ document.addEventListener("DOMContentLoaded",()=> {
             resource_seats_taken = resource.seatsTaken;
             resource_start = resource.startHour;
             resource_end = resource.endHour;}
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 
         //checking login info
@@ -107,6 +119,10 @@ function build_page(){
 =======
         user = users.find(u => u.id == userID);
 
+=======
+        user = users.find(u => u.id == userID);
+
+>>>>>>> Stashed changes
     if(mode=="modify"&&(bookingID==null||booking==null))
         event_info = throw_error("bookingNotFound");
     else if(userID==null||user==null)
@@ -137,6 +153,9 @@ function throw_error(error_type){
 
 function build_page(){
     //main page
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     const main_page = document.createElement("div");
     main_page.classList.add("main_page");
@@ -156,7 +175,10 @@ function build_page(){
     img.classList.add("img");                                  //image
     img.src = resource_img;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
     console.log(img.src);
 >>>>>>> Stashed changes
     img.alt = "banner image";
