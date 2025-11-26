@@ -19,8 +19,9 @@ main {
 
     img {
         width: 100%;
-        height: auto;
+        max-height: 200px;
         margin-bottom: 8px;
+        object-fit: cover;
     }
 
     .resource-name {
