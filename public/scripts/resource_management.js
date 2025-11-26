@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   loadResources();
 });
 
-//loading all the resources
+// loading all the resources + bookings
 async function loadResources() {
   tableBody.innerHTML = `
     <tr>
@@ -22,16 +22,25 @@ async function loadResources() {
   `;
 
   try {
-    const response = await fetch("/api/resources"); // ✅ uses backend route
-    if (!response.ok) {
-      throw new Error(` ${response.status}`);
+    // 🔹 Fetch resources and bookings together
+    const [resResources, resBookings] = await Promise.all([
+      fetch("/api/resources"),
+      fetch("/api/bookings"),
+    ]);
+
+    if (!resResources.ok) {
+      throw new Error(`Resources HTTP error ${resResources.status}`);
+    }
+    if (!resBookings.ok) {
+      throw new Error(`Bookings HTTP error ${resBookings.status}`);
     }
 
-    const resources = await response.json();
-    renderResources(resources);
-  } 
-  catch (error) {
-    console.error("Failed to load resources:", error);
+    const resources = await resResources.json();
+    const bookings = await resBookings.json();
+
+    renderResources(resources, bookings);
+  } catch (error) {
+    console.error("Failed to load resources or bookings:", error);
     tableBody.innerHTML = `
       <tr>
         <td colspan="2">Could not load resources.</td>
@@ -41,7 +50,7 @@ async function loadResources() {
 }
 
 // rendering table rows
-function renderResources(resources) {
+function renderResources(resources, bookings) {
   tableBody.innerHTML = "";
 
   if (!Array.isArray(resources) || resources.length === 0) {
@@ -53,14 +62,47 @@ function renderResources(resources) {
     return;
   }
 
+  const allBookings = Array.isArray(bookings) ? bookings : [];
+
   resources.forEach((resource) => {
-    const tr = createResourceRow(resource);
+    const tr = createResourceRow(resource, allBookings);
     tableBody.appendChild(tr);
   });
 }
 
+// helper to compute peak time from bookings of a resource
+function computePeakTime(bookingsForResource) {
+  if (!Array.isArray(bookingsForResource) || bookingsForResource.length === 0) {
+    return null;
+  }
+
+  const counts = {};
+  bookingsForResource.forEach((b) => {
+    const t = b.startTime;
+    if (!t) return;
+    counts[t] = (counts[t] || 0) + 1;
+  });
+
+  const times = Object.keys(counts);
+  if (times.length === 0) return null;
+
+  // find time with max count; if tie, pick first
+  let peak = times[0];
+  let maxCount = counts[peak];
+
+  for (let i = 1; i < times.length; i++) {
+    const t = times[i];
+    if (counts[t] > maxCount) {
+      maxCount = counts[t];
+      peak = t;
+    }
+  }
+
+  return peak; 
+}
+
 // creating the row for each resource
-function createResourceRow(resource) {
+function createResourceRow(resource, allBookings) {
   const tr = document.createElement("tr");
   tr.dataset.id = resource.id;
 
@@ -87,9 +129,9 @@ function createResourceRow(resource) {
   const dateDiv = document.createElement("div");
   if (resource.startDate && resource.endDate) {
     dateDiv.textContent = `Date range: ${resource.startDate} - ${resource.endDate}`;
-  } 
-  else  dateDiv.textContent = "Date range: -";
-  
+  } else {
+    dateDiv.textContent = "Date range: -";
+  }
   contentTd.appendChild(dateDiv);
 
   const timeDiv = document.createElement("div");
@@ -100,28 +142,39 @@ function createResourceRow(resource) {
   }
   contentTd.appendChild(timeDiv);
 
-  const capacityDiv = document.createElement("div");
-  const capacity = resource.capacity ?? "-";
-  const taken = resource.seatsTaken ?? 0;
-  capacityDiv.textContent = `Capacity: ${taken} / ${capacity}`;
-  contentTd.appendChild(capacityDiv);
+  // find bookings for this resource and compute dynamic peak time
+  const bookingsForResource = allBookings.filter(
+    (b) => String(b.resourceId) === String(resource.id)
+  );
+  const dynamicPeak = computePeakTime(bookingsForResource);
+  const peakLabel = dynamicPeak || resource.peakTime || "—";
 
-  const peakDiv = document.createElement("div");
-  if (resource.peakTime) {
-    peakDiv.textContent = `Peak time: ${resource.peakTime}`;
-  } 
-  else peakDiv.textContent = "Peak time: -";
-  
-  contentTd.appendChild(peakDiv);
+  const usedSeats = resource.seatsTaken ?? 0;
+  const capacity = resource.capacity ?? "-";
+
+  // stats box (Peak time + Capacity used)
+  const statsDiv = document.createElement("div");
+  statsDiv.className = "stats";
+  statsDiv.innerHTML = `
+    <div class="stat">
+      <span class="label">Peak time:</span>
+      <span class="value">${peakLabel}</span>
+    </div>
+    <div class="stat">
+      <span class="label">Capacity used:</span>
+      <span class="value">${usedSeats} / ${capacity}</span>
+    </div>
+  `;
+  contentTd.appendChild(statsDiv);
 
   const locDiv = document.createElement("div");
   if (resource.street || resource.postalCode) {
     locDiv.textContent = `Location: ${resource.street || ""} ${
       resource.postalCode || ""
     }`.trim();
-  } 
-  else locDiv.textContent = "Location: -";
-  
+  } else {
+    locDiv.textContent = "Location: -";
+  }
   contentTd.appendChild(locDiv);
 
   const desc = document.createElement("p");
@@ -131,7 +184,6 @@ function createResourceRow(resource) {
   // actions
   const actions = document.createElement("div");
   actions.className = "resource-actions";
-
 
   // edit resource (go to edit page with id)
   const editBtn = document.createElement("button");
@@ -171,7 +223,7 @@ function createResourceRow(resource) {
   return tr;
 }
 
-// togglinh open/blocked and save
+// toggling open/blocked and save
 async function toggleBlockResource(resource) {
   const newStatus = resource.status === "blocked" ? "open" : "blocked";
 
@@ -196,7 +248,6 @@ async function toggleBlockResource(resource) {
   }
 }
 
-
 // delete resource 
 async function deleteResource(id) {
   const confirmDelete = confirm("Are you sure you want to delete this resource?");
@@ -212,8 +263,7 @@ async function deleteResource(id) {
     }
 
     await loadResources();
-  } 
-  catch (error) {
+  } catch (error) {
     console.error("Failed to delete the resource:", error);
     alert("Was not delete resource.");
   }

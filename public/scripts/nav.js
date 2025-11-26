@@ -40,6 +40,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         const accountDiv = document.getElementById("accountButtons");
 
         if (user) {
+            // pegah: Mark logged-in state
+            localStorage.setItem("isLoggedIn", "true");
+            localStorage.setItem("user", JSON.stringify(user));
+
             // Logged in → show Profile and Logout
             accountDiv.innerHTML = `
         <button onclick="location.href='/pages/profile.html'" class="profile_button">Profile</button>
@@ -56,9 +60,19 @@ document.addEventListener("DOMContentLoaded", async () => {
             // Logout action
             document.getElementById("logoutBtn").addEventListener("click", async () => {
                 await fetch("/api/auth/logout", { method: "POST" });
+
+                // pegah: Clear logged-in state
+                localStorage.removeItem("isLoggedIn");
+                localStorage.removeItem("user");
+
                 location.reload();
             });
+
         } else {
+            // pegah: Clear state when not logged in
+            localStorage.removeItem("isLoggedIn");
+            localStorage.removeItem("user");
+
             // Not logged in --> show Sign In and Register
             accountDiv.innerHTML = `
         <button onclick="location.href='/pages/login.html'" class="signin_button">Sign In</button>
@@ -66,12 +80,13 @@ document.addEventListener("DOMContentLoaded", async () => {
       `;
 
             document.querySelectorAll(".user-only").forEach(el => el.style.display = "none");
-
-
-            // Hide admin links
             document.querySelectorAll(".admin-only").forEach(el => el.style.display = "none");
         }
     } catch (err) {
         console.error("Error checking login state:", err);
+
+        // pegah: Clear login state if server check fails
+        localStorage.removeItem("isLoggedIn");
+        localStorage.removeItem("user");
     }
 });

@@ -41,13 +41,19 @@ function renderResources(resources) {
       `${resource.street || ''} ${resource.postalCode || ''}`.trim();
     const availability =
       resource.availability ||
-      `${resource.startDate || ''} ${resource.startHour || ''} → ${resource.endDate || ''} ${resource.endHour || ''}`.trim();
+      `${resource.startDate || ''} ${resource.startHour || ''} - ${resource.endDate || ''} ${resource.endHour || ''}`.trim();
     const capacity = resource.capacity ?? '';
     const status = resource.status || 'open';
     const typeNorm = normalizeType(resource);
-    const id = resource.id; //  use this in the link when want to create a booking
+    const id = resource.id; // use this in the link when want to create a booking
 
-    const href = `event_page.html?mode=create&resource=${encodeURIComponent(id)}`;
+    // Check login flag set by login.js / admin_login.js
+    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+    // If not logged in -> go to login.html, else -> event_page.html
+    const href = isLoggedIn
+      ? `/pages/event_page.html?mode=create&resource=${encodeURIComponent(id)}`
+      : `/pages/login.html`;
 
     const td = document.createElement('td');
     td.innerHTML = `
