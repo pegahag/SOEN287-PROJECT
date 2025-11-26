@@ -1,16 +1,8 @@
 let resource_img;
 let resource;
 let resource_title;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 let userID;
 let user
-=======
-let user;
->>>>>>> Stashed changes
-=======
-let user;
->>>>>>> Stashed changes
 let resource_start;
 let resource_end;
 let booking_purpose;
@@ -34,14 +26,6 @@ if(mode=="create"){
 if(mode=="modify"){
  bookingID = params.get("booking");
 }
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
-const userID = params.get("user");
-
->>>>>>> Stashed changes
 //GETTING JSON
 document.addEventListener("DOMContentLoaded",()=> {
     const container = document.getElementById("event_page");
@@ -56,18 +40,10 @@ document.addEventListener("DOMContentLoaded",()=> {
             if(booking!=null){
                 booking_date = booking.date;
                 booking_purpose = booking.purpose;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
                 resourceID = booking.resourceId;
                 console.log(resourceID);
             }}
         console.log(resourceID);
-=======
-                resourceID = booking.resourceId;}}
->>>>>>> Stashed changes
-=======
-                resourceID = booking.resourceId;}}
->>>>>>> Stashed changes
         resource = resources.find(r => r.id == resourceID);
         if(resource != null){
             resource_img = resource.image; 
@@ -77,8 +53,6 @@ document.addEventListener("DOMContentLoaded",()=> {
             resource_seats_taken = resource.seatsTaken;
             resource_start = resource.startHour;
             resource_end = resource.endHour;}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 
         //checking login info
         fetch("/api/auth/me").then(res => res.json()).then(data =>{
@@ -116,47 +90,6 @@ function throw_error(error_type){
 function build_page(){
     //main page
     console.log(resource_title);
-=======
-        user = users.find(u => u.id == userID);
-
-=======
-        user = users.find(u => u.id == userID);
-
->>>>>>> Stashed changes
-    if(mode=="modify"&&(bookingID==null||booking==null))
-        event_info = throw_error("bookingNotFound");
-    else if(userID==null||user==null)
-        event_info = throw_error("userNotFound");
-    else if(resourceID==null||resource==null)
-        event_info = throw_error("resourceNotFound");
-    else{
-        event_info = build_page();
-    }
-    container.appendChild(event_info);
- });
-});
-
-//BUILD PAGE FUNCTION
-
-//Error if info mismatched
-function throw_error(error_type){
-    const error_page = document.createElement("div");
-    error_page.classList.add("error_page");
-    if(error_type == "userNotFound")
-        error_page.textContent = "Error: User not found";
-    if(error_type == "resourceNotFound")
-        error_page.textContent = "Error: Resource not found";
-    if(error_type == "bookingNotFound")
-        error_page.textContent = "Error: Booking not found";
-    return error_page;
-}
-
-function build_page(){
-    //main page
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     const main_page = document.createElement("div");
     main_page.classList.add("main_page");
 
@@ -174,13 +107,6 @@ function build_page(){
 
     img.classList.add("img");                                  //image
     img.src = resource_img;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
-    console.log(img.src);
->>>>>>> Stashed changes
     img.alt = "banner image";
 
     //calendar
