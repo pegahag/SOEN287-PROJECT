@@ -19,7 +19,7 @@
     "street": "123 University Ave",
     "postalCode": "H3G 1X4",
     "description": "Quiet study room with 10 desks and whiteboards.",
-    "image": "/images/bookings-event-banner.png",
+    "image": "/images/studyroom.jpg",
     "status": "blocked",
     "capacity": 10,
     "seatsTaken": 4,
