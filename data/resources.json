@@ -26,38 +26,23 @@
     "type": "room"
   },
   {
-    "id": 2,
-    "title": "Campus Gymnasium",
-    "startDate": "01-11-2025",
-    "endDate": "31-12-2025",
-    "startHour": "06:00",
-    "endHour": "22:00",
-    "peakTime": "09:00",
-    "weekdaysAvailable": [
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      0
-    ],
-    "street": "456 Fitness Blvd",
-    "postalCode": "H3G 2Y7",
-    "description": "Full-size gym with basketball court and fitness equipment.",
-    "image": "/images/bookings-event-banner.png",
-    "status": "open",
-    "capacity": 50,
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    "seatsTaken": 33
-=======
-    "seatsTaken": 32
->>>>>>> Stashed changes
-=======
-    "seatsTaken": 32
->>>>>>> Stashed changes
-  },
+  "id": 2,
+  "title": "Campus Gymnasium",
+  "startDate": "01-11-2025",
+  "endDate": "31-12-2025",
+  "startHour": "06:00",
+  "endHour": "22:00",
+  "peakTime": "09:00",
+  "weekdaysAvailable": [1,1,1,1,1,1,0],
+  "street": "456 Fitness Blvd",
+  "postalCode": "H3G 2Y7",
+  "description": "Full-size gym with basketball court and fitness equipment.",
+  "image": "/images/studyroom.jpg",
+  "status": "open",
+  "capacity": 50,
+  "seatsTaken": 32,
+  "type": "room"
+},
   {
     "id": 3,
     "title": "Auditorium B",
@@ -78,7 +63,7 @@
     "street": "789 Event St",
     "postalCode": "H3G 3Z1",
     "description": "Auditorium with 200 seats and AV equipment for presentations.",
-    "image": "/images/bookings-event-banner.png",
+    "image": "/images/studyroom.jpg",
     "status": "blocked",
     "capacity": 200,
     "seatsTaken": 0,
