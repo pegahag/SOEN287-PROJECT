@@ -1,7 +1,6 @@
 # SOEN287-PROJECT
 Group project for SOEN287 - Managing university resources
 
-
 # Members:
 1- Dylan Bourret 40287207
 2- Pegah Aghili 40113508
@@ -9,16 +8,15 @@ Group project for SOEN287 - Managing university resources
 4- Bowen Yao 40269137
 
 # Installation guide: 
-1- Download and extract the compressed folder called SOEN287-PROJECT to your computer
-  - Make sure the folder keeps this structure (don’t move files around)
+1. Download and extract the compressed folder named *SOEN287-PROJECT* to your computer. 
+After extracting it, ensure that the internal folder structure remains intact, avoid moving, renaming, or reorganizing any of the files or directories.
 
-2- Open the Website
-  - In project root, Install dependencies and run the program by running the following commands
-  - npm install
-  - npm start
-  - website should now run at http://localhost:3000
+2. To launch the website, start by opening a terminal in the project’s root directory. 
+From there, install all required dependencies and start the website server by running the following commands:
+* `npm install`
+* `npm start`
+Once these commands are complete, the website will be available in your browser at [http://localhost:3000].
 
---------------- // Readme to be updated // --------------------    
 
 # List of features implemented (front end, mostly hardcoded):
 1- Catalogue page with all the available resources, where you can filter different resource types to make looking for one easier.
